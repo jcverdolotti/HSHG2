@@ -1063,3 +1063,277 @@ Completed 200 OK in 34618ms (Views: 34519.2ms | ActiveRecord: 0.0ms)
 
 
 >>>>>>> 66ff3aa049d0f519df02a7c7c59efbd7b9ea668c
+  [1m[35m (57.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (27.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateResidences (20181106151851)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (28.6ms)[0m  [1m[35mCREATE TABLE "residences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "date" date, "cost" decimal, "people_amount" integer, "logic_delete" character varying, "reserved" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181106151851"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-09 13:23:05.000165"], ["updated_at", "2018-11-09 13:23:05.000165"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:38:52 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 9.2ms)
+
+
+  
+SyntaxError (/home/alumno/hsh/app/views/residences/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+            required: true );@output_buffer.safe_ap
+                     ^
+/home/alumno/hsh/app/views/residences/new.html.erb:14: syntax error, unexpected ':', expecting ')'
+           required: true );@output_buffer.safe_ap
+                    ^):
+  
+app/views/residences/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+app/views/residences/new.html.erb:14: syntax error, unexpected ':', expecting ')'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:39:20 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alumno/hsh/app/views/residences/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+            required: true );@output_buffer.safe_ap
+                     ^):
+  
+app/views/residences/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:39:24 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alumno/hsh/app/views/residences/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+            required: true );@output_buffer.safe_ap
+                     ^):
+  
+app/views/residences/new.html.erb:8: syntax error, unexpected ':', expecting ')'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:40:08 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (81.4ms)
+Completed 500 Internal Server Error in 89ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `title' for #<Residence:0x0055b098891f68>):
+    4: 
+    5:     <div class="form-group">
+    6:         <%= f.label :name, 'Título' %>
+    7:         <%= f.text_field :title, class: 'form-control', placeholder: 'Ingrese el título de la residencia',
+    8:             required: true %>
+    9:     </div>
+   10: 
+  
+app/views/residences/new.html.erb:7:in `block in _app_views_residences_new_html_erb__2424961950445475013_47108480860380'
+app/views/residences/new.html.erb:3:in `_app_views_residences_new_html_erb__2424961950445475013_47108480860380'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:40:28 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (54.7ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `country' for #<Residence:0x0055b098a8fc20>):
+    15: 
+    16:     <div class="form-group">
+    17:         <%= f.label :location, 'Localización' %>
+    18:         <%= f.text_field :country, class: 'form-control', placeholder: 'Ingrese la localización de la residencia' %>
+    19:     </div>
+    20: 
+    21:     <div class="form-group">
+  
+app/views/residences/new.html.erb:18:in `block in _app_views_residences_new_html_erb__2424961950445475013_47108481904100'
+app/views/residences/new.html.erb:3:in `_app_views_residences_new_html_erb__2424961950445475013_47108481904100'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:40:45 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 1709ms (Views: 1707.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 10:41:17 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  Rendered residences/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alumno/hsh/app/views/residences/index.html.erb:23: syntax error, unexpected ')', expecting '}'
+eas eliminar la residencia?' );@output_buffer.safe_append='<
+                              ^
+/home/alumno/hsh/app/views/residences/index.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/home/alumno/hsh/app/views/residences/index.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^):
+  
+app/views/residences/index.html.erb:23: syntax error, unexpected ')', expecting '}'
+app/views/residences/index.html.erb:31: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/residences/index.html.erb:33: syntax error, unexpected keyword_end, expecting ')'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:41:21 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 68ms (Views: 67.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:43:27 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 68ms (Views: 65.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 10:44:49 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 98ms (Views: 95.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:03:18 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 457ms (Views: 416.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:12:02 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 113ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:13:12 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 66ms (Views: 64.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:17:08 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 124ms (Views: 115.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:26:24 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 87ms (Views: 85.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:27:33 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 89ms (Views: 87.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:29:33 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 79ms (Views: 77.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:37:05 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 75ms (Views: 74.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:44:52 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 117ms (Views: 115.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:46:55 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (245.2ms)
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/alumno/hsh/app/views/residences/new.html.erb:28: syntax error, unexpected ',', expecting =>
+-control', aria-label="Costo", type="number", placeholder: '
+                              ^
+/home/alumno/hsh/app/views/residences/new.html.erb:28: syntax error, unexpected tLABEL
+", type="number", placeholder: 'Ingrese el costo de la resid
+                              ^
+/home/alumno/hsh/app/views/residences/new.html.erb:28: syntax error, unexpected ',', expecting ')'
+se el costo de la residencia',
+                              ^):
+  
+app/views/residences/new.html.erb:28: syntax error, unexpected ',', expecting =>
+app/views/residences/new.html.erb:28: syntax error, unexpected tLABEL
+app/views/residences/new.html.erb:28: syntax error, unexpected ',', expecting ')'
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:48:14 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 78ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:49:03 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 79ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:49:42 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (177.0ms)
+Completed 200 OK in 261ms (Views: 259.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:50:55 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 79ms (Views: 77.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:51:43 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 94ms (Views: 92.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 11:52:37 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 87ms (Views: 86.1ms | ActiveRecord: 0.0ms)
+
+
