@@ -7,7 +7,7 @@ class CreateResidences < ActiveRecord::Migration[5.1]
       t.date :date
       t.decimal :cost
       t.integer :people_amount
-      t.string :logic_delete
+      t.boolean :logic_delete
       t.boolean :reserved
 
       t.timestamps

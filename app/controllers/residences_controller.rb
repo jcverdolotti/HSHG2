@@ -21,6 +21,10 @@ class ResidencesController < ApplicationController
         @residence = Residence.find(params[:id])
     end
 
+    def home
+        @residence = Residence.find(1)
+    end
+
     def update
         @residence= Residence.find(params[:id])
 
@@ -31,6 +35,16 @@ class ResidencesController < ApplicationController
         end
     
     end
+    def destroy
+        @residence=Residence.find(params[:id])
+        if @residence.reserved
+            @residence.update(logic_delete: true)
+            redirect_to residences_path, notice: 'Baja lógica correcta'
+        elsif @residence.destroy
+            redirect_to residences_path, notice: 'La residencia se eliminó correctamente'
+        end
+    end
+
 
     def residence_params
         params.require(:residence).permit(:location, :description, :date, :cost, :people_amount, :id, :name)
