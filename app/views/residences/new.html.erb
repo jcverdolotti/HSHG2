@@ -1,0 +1,33 @@
+<h3> Nueva residencia </h3>
+
+<%= form_for @residence do |f| %>
+    
+    <div class="form-group">
+        <%= f.label :name, 'Título' %>
+        <%= f.text_field :title, class: 'form-control', placeholder: 'Ingrese el título de la residencia'
+            required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :description, 'Descripción' %>
+        <%= f.text_field :description, class: 'form-control', placeholder: 'Ingrese la descripción de la residencia'
+           required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :location, 'Localización' %>
+        <%= f.text_field :country, class: 'form-control', placeholder: 'Ingrese la localización de la residencia' %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :cost, 'Costo' %>
+        <%= 
+    </div>
+
+    <%= f.submit 'Guardar residencia', class: 'btn btn-primary' %>
+    <%= link_to 'Volver', residences_path, class: 'btn default' %>
+
+
+
+
+<% end %>
