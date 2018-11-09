@@ -2316,8 +2316,16 @@ Completed 200 OK in 299ms (Views: 286.6ms | ActiveRecord: 0.8ms)
 >>>>>>> 9ca6d22c3aea84eaa033d42b559e1a200977b234
 
 
+<<<<<<< HEAD
 Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 13:46:38 -0300
   [1m[35m (60.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+=======
+  [1m[35m (23.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:00:44 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+>>>>>>> fb634ab45daed3519b22f1f583f170864372305f
   
 ActiveRecord::PendingMigrationError (
 
@@ -2360,6 +2368,7 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+<<<<<<< HEAD
 Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 13:47:10 -0300
   [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   
@@ -2378,6 +2387,228 @@ activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+=======
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateResidences (20181106151852)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "residences" ("id" bigserial primary key, "name" character varying, "location" character varying, "description" character varying, "date" date, "cost" decimal, "people_amount" integer, "logic_delete" boolean, "reserved" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181106151852"]]
+  [1m[35m (16.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-09 17:01:25.498432"], ["updated_at", "2018-11-09 17:01:25.498432"]]
+  [1m[35m (9.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "bariloche"], ["location", "Neuquen"], ["description", "bypass"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-09 17:01:43.687937"], ["updated_at", "2018-11-09 17:01:43.687937"]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "starosa"], ["location", "La Pampa, Argentina, America del sur, La tierra, Via lactea"], ["description", "tiene el ombu"], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-09 17:01:43.699038"], ["updated_at", "2018-11-09 17:01:43.699038"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "lp"], ["location", "Neuquen"], ["description", "ntc gato"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-09 17:01:43.707911"], ["updated_at", "2018-11-09 17:01:43.707911"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "gonnet"], ["location", "Neuquen"], ["description", "tincho "], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-09 17:01:43.718211"], ["updated_at", "2018-11-09 17:01:43.718211"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:02:38 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 661ms (Views: 576.0ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 14:03:27 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 104ms (Views: 102.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 14:03:32 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 208ms (Views: 180.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-09 14:09:12 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 148ms (Views: 144.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:28:43 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.0ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 1020ms (Views: 943.2ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:31:09 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.6ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (12.8ms)
+Completed 200 OK in 207ms (Views: 176.4ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:31:20 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (8.4ms)
+Completed 200 OK in 175ms (Views: 169.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:36:23 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 100ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alumno/Documentos/HSHG2/app/views"
+):
+     9:   </head>
+    10:   <body>
+    11:     <header>
+    12:       <%= render 'layouts/navigation' %>
+    13:     </header>
+    14:     <main role="main">
+    15:        <%= render 'layouts/messages' %>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2733115188291099843_70255967787120'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:36:39 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alumno/Documentos/HSHG2/app/views"
+):
+     9:   </head>
+    10:   <body>
+    11:     <header>
+    12:       <%= render 'layouts/navigation' %>
+    13:     </header>
+    14:     <main role="main">
+    15:        <%= render 'layouts/messages' %>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2733115188291099843_70255917186800'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:38:13 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 255ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alumno/Documentos/HSHG2/app/views"
+):
+     9:   </head>
+    10:   <body>
+    11:     <header>
+    12:       <%= render 'layouts/navigation' %>
+    13:     </header>
+    14:     <main role="main">
+    15:        <%= render 'layouts/messages' %>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2733115188291099843_70255916796280'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:38:16 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alumno/Documentos/HSHG2/app/views"
+):
+     9:   </head>
+    10:   <body>
+    11:     <header>
+    12:       <%= render 'layouts/navigation' %>
+    13:     </header>
+    14:     <main role="main">
+    15:        <%= render 'layouts/messages' %>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2733115188291099843_70255911880280'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:38:19 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (3.5ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial layouts/_navigation with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/alumno/Documentos/HSHG2/app/views"
+):
+     9:   </head>
+    10:   <body>
+    11:     <header>
+    12:       <%= render 'layouts/navigation' %>
+    13:     </header>
+    14:     <main role="main">
+    15:        <%= render 'layouts/messages' %>
+  
+app/views/layouts/application.html.erb:12:in `_app_views_layouts_application_html_erb___2733115188291099843_47039708681620'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:38:27 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (201.6ms)
+Completed 200 OK in 270ms (Views: 266.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:39:18 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 80ms (Views: 75.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:48:29 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (3.6ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 20ms (Views: 10.7ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:48:29 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+>>>>>>> fb634ab45daed3519b22f1f583f170864372305f
 web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
 web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
@@ -2404,6 +2635,7 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+<<<<<<< HEAD
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to CreateResidences (20181106151852)
@@ -2487,6 +2719,21 @@ activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
 actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
 actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+=======
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:48:32 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (2.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 10.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:48:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+>>>>>>> fb634ab45daed3519b22f1f583f170864372305f
 web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
 web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
 web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
@@ -2513,6 +2760,7 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+<<<<<<< HEAD
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[35m (60.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -3226,5 +3474,1352 @@ Processing by ResidencesController#new as HTML
   Rendered residences/_form.html.erb (4.1ms)
   Rendered residences/new.html.erb within layouts/application (10.5ms)
 Completed 200 OK in 114ms (Views: 77.1ms | ActiveRecord: 0.0ms)
+=======
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:48:32 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:48:32 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:48:32 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:48:33 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:48:33 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 7.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:48:33 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:48:40 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 14ms (Views: 6.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:48:40 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:51:57 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 30ms (Views: 9.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:51:58 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:51:59 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/docs/HSHG2/assets/brand/hsh-text.svg" for 127.0.0.1 at 2018-11-09 14:51:59 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/HSHG2/assets/brand/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:52:05 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 92ms (Views: 88.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/docs/4.0/assets/brand/bootstrap-solid.svg" for 127.0.0.1 at 2018-11-09 14:52:05 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/4.0/assets/brand/bootstrap-solid.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:52:51 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.9ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 107ms (Views: 101.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/docs/4.0/assets/brand/bootstrap-solid.svg" for 127.0.0.1 at 2018-11-09 14:52:51 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/docs/4.0/assets/brand/bootstrap-solid.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 14:58:51 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 135ms (Views: 129.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:02:17 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+mage_tag("hsh-text.svg") width="30" height="30" alt="");@out
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+h-text.svg") width="30" height="30" alt="");@output_buffer.s
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+g") width="30" height="30" alt="");@output_buffer.safe_appen
+                              ^):
+  
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255968298120'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:04:27 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+mage_tag("hsh-text.svg") width="30" height="30" alt="" class
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+h-text.svg") width="30" height="30" alt="" class="d-inline-b
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+g") width="30" height="30" alt="" class="d-inline-block alig
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected keyword_class, expecting ')'
+="30" height="30" alt="" class="d-inline-block align-top" al
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+"d-inline-block align-top" alt="");@output_buffer.safe_appen
+                              ^):
+  
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected keyword_class, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255910662280'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:05:03 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+mage_tag("hsh-text.svg") width="30" height="30" alt="" class
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+h-text.svg") width="30" height="30" alt="" class="d-inline-b
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+g") width="30" height="30" alt="" class="d-inline-block alig
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected keyword_class, expecting ')'
+="30" height="30" alt="" class="d-inline-block align-top" al
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+"d-inline-block align-top" alt="");@output_buffer.safe_appen
+                              ^):
+  
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected keyword_class, expecting ')'
+app/views/layouts/_header.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255970273880'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:05:17 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 94ms (Views: 90.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:07:30 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.0ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (6.4ms)
+Completed 200 OK in 65ms (Views: 61.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:07:32 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 69ms (Views: 66.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:07:34 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 70ms (Views: 62.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:11:43 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:20:50 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 63ms (Views: 60.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:21:45 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:22:46 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (6.5ms)
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:22:57 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 18ms (Views: 14.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:24:32 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:24:34 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:24:34 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:27:04 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (6.0ms)
+Completed 200 OK in 18ms (Views: 13.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:27:08 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:27:09 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (7.3ms)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:46:23 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:46:23 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:47:18 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:47:18 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 15:52:48 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:52:48 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:52:56 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:53:44 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+Completed 200 OK in 19ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:53:44 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:53:46 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (7.0ms)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:53:46 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:53:49 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:53:49 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 15:53:51 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:53:51 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/style.css" for 127.0.0.1 at 2018-11-09 15:53:54 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:54:12 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 15:54:14 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_header.html.erb (6.5ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:55:52 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (6.8ms)
+Completed 200 OK in 74ms (Views: 72.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:55:53 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+Completed 200 OK in 95ms (Views: 92.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 15:55:54 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+Completed 200 OK in 75ms (Views: 73.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:58:04 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 1.2ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:6: syntax error, unexpected keyword_class, expecting ')'
+mage_tag("hsh-text.svg") class="rounded-top");@output_buffer
+                              ^):
+  
+app/views/layouts/_header.html.erb:6: syntax error, unexpected keyword_class, expecting ')'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255919320020'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:59:48 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (8.6ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:7: syntax error, unexpected keyword_class, expecting ')'
+mage_tag("hsh-text.svg") class="rounded-top");@output_buffer
+                              ^):
+  
+app/views/layouts/_header.html.erb:7: syntax error, unexpected keyword_class, expecting ')'
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255969542060'
+Started GET "/" for 127.0.0.1 at 2018-11-09 15:59:56 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 70ms (Views: 66.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/hsh-text.svg" for 127.0.0.1 at 2018-11-09 15:59:56 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:00:07 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 101ms (Views: 74.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/hsh-text.svg" for 127.0.0.1 at 2018-11-09 16:00:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:00:28 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 79ms (Views: 76.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/hsh-text.svg" for 127.0.0.1 at 2018-11-09 16:00:29 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/hsh-text.svg"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:02:13 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:7: syntax error, unexpected '='
+mage_tag("hsh-text.svg",class="rounded-top"));@output_buffer
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+ext.svg",class="rounded-top"));@output_buffer.safe_append='
+                              ^):
+  
+app/views/layouts/_header.html.erb:7: syntax error, unexpected '='
+app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255922307780'
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:02:26 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:7: syntax error, unexpected '='
+mage_tag("hsh-text.svg",class="rounded-top"));@output_buffer
+                              ^
+/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+ext.svg",class="rounded-top"));@output_buffer.safe_append='
+                              ^):
+  
+app/views/layouts/_header.html.erb:7: syntax error, unexpected '='
+app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255969599660'
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:02:31 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (9.2ms)
+Completed 200 OK in 72ms (Views: 67.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:03:05 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/home/alumno/Documentos/HSHG2/app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+ "16x10", alt: "Edit Entry")));@output_buffer.safe_append='
+                              ^):
+  
+app/views/layouts/_header.html.erb:7: syntax error, unexpected ')', expecting keyword_end
+app/views/layouts/application.html.erb:13:in `_app_views_layouts_application_html_erb___2733115188291099843_70255911414040'
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:03:16 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 77ms (Views: 71.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:03:29 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (5.3ms)
+Completed 200 OK in 66ms (Views: 64.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:04:36 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (6.1ms)
+Completed 200 OK in 78ms (Views: 74.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:04:38 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (6.6ms)
+Completed 200 OK in 107ms (Views: 105.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:04:39 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 74ms (Views: 68.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:04:39 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 74ms (Views: 71.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:04:56 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (7.3ms)
+Completed 200 OK in 65ms (Views: 62.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:05:05 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.9ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 74ms (Views: 71.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 16:05:09 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (5.1ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+Completed 200 OK in 79ms (Views: 77.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 16:05:11 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (6.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+Completed 200 OK in 83ms (Views: 81.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 16:05:19 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (1.4ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+Completed 200 OK in 88ms (Views: 84.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:05:47 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.9ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 92ms (Views: 89.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:05:58 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (6.3ms)
+Completed 200 OK in 73ms (Views: 70.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:06:20 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (1.3ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 87ms (Views: 82.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:06:39 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 74ms (Views: 71.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:06:51 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (7.7ms)
+Completed 200 OK in 83ms (Views: 80.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:06:52 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (5.4ms)
+Completed 200 OK in 74ms (Views: 69.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:07:00 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+Completed 200 OK in 78ms (Views: 74.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:07:08 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (9.4ms)
+Completed 200 OK in 88ms (Views: 80.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:07:17 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.4ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+Completed 200 OK in 76ms (Views: 71.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-09 16:07:24 -0300
+Processing by ResidencesController#home as HTML
+  [1m[36mResidence Load (0.2ms)[0m  [1m[34mSELECT  "residences".* FROM "residences" WHERE "residences"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 94ms (Views: 91.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-09 16:07:28 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (6.5ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 76ms (Views: 74.3ms | ActiveRecord: 0.3ms)
+>>>>>>> fb634ab45daed3519b22f1f583f170864372305f
 
 
