@@ -1,17 +1,17 @@
-<h2>Residencias</h2>
-
+<h2 style="margin-left: 10px;">Residencias</h2>
+<br>
+<div class:'container' style="margin-left: 10px;">
 <table class="table table-striped">
   
   <thead>
     <tr>
       <th width="5%" >#</th>
       <th width="20%">Residencia</th>
-      <th width="10%">Reservada</th>
-      <th width="10%">Eliminada</th>
+      <th width="5%">Reservada</th>
+      <th width="5%">Eliminada</th>
       <th colspan="2"></th>
     </tr>
 
-    <hr />
 
   </thead>
 
@@ -19,7 +19,7 @@
     <% @residences.each do |residence| %>
       <tr>
         <td><%= residence.id %></td>
-        <td><%= residence.name %></td>
+        <td><%= link_to residence.name , residence_path(residence) %></td>
         
         <%if residence.reserved%>
           <td>si</td> 
@@ -36,9 +36,12 @@
         <td><%= link_to 'Editar', edit_residence_path(residence), class: 'btn btn-info btn-sm' %></td>
         <td><%= link_to 'Eliminar', residence, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas eliminar la residencia?'} %></td>     
       </tr>
-      <%end%>   
+      <%end%>  
+
   </tbody>
 
 </table>
 
-<br>
+
+<%=link_to 'Nueva Residencia', new_residence_path, class: 'btn btn-secondary'%> 
+</div>

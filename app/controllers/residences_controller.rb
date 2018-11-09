@@ -22,7 +22,7 @@ class ResidencesController < ApplicationController
     end
 
     def home
-        @residence = Residence.find(1)
+        #@residence = Residence.find(1)
     end
 
     def update
@@ -35,6 +35,11 @@ class ResidencesController < ApplicationController
         end
     
     end
+
+    def show
+        @residence = Residence.find(params[:id])
+    end
+
     def destroy
         @residence=Residence.find(params[:id])
         if @residence.reserved
