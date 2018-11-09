@@ -16,12 +16,27 @@
   </thead>
 
   <tbody>
-    <% @residence.each do |residence| %>
+    <% @residences.each do |residence| %>
       <tr>
-        <td><%= residence.title %></td>
+        <td><%= residence.id %></td>
+        <td><%= residence.name %></td>
+        
+        <%if residence.reserved%>
+          <td>si</td> 
+        <%else%>
+        <td>no</td>
+        <%end%>
+        
+        <%if residence.logic_delete%>
+          <td>si</td> 
+        <%else%>
+          <td>no</td>
+        <%end%>
+        
         <td><%= link_to 'Editar', edit_residence_path(residence), class: 'btn btn-info btn-sm' %></td>
-        <td><%= link_to 'Eliminar', residence, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas eliminar la residencia?' %></td>     
-      </tr>   
+        <td><%= link_to 'Eliminar', residence, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas eliminar la residencia?'} %></td>     
+      </tr>
+      <%end%>   
   </tbody>
 
 </table>
