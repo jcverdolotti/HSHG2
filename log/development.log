@@ -24,3 +24,242 @@ Processing by ResidencesController#home as HTML
 Completed 200 OK in 11222ms (Views: 11201.9ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:11:18 -0300
+  [1m[35m (32.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<%= link_to('Listado de Usuarios', user_path) %>
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__2503154259109606406_46915541157640'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:12:30 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<%= link_to('Listado de Usuarios', user_path) %>
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__2503154259109606406_46915542288760'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:12:31 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<%= link_to('Listado de Usuarios', user_path) %>
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__2503154259109606406_46915543099360'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:12:58 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<%= link_to('Listado de Usuarios', user_path) %>
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__2503154259109606406_46915542819900'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:14:35 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<!--<%= link_to('Listado de Usuarios', user_path) %> <!-->
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__2503154259109606406_46915543409740'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:14:38 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<!--<%= link_to('Listado de Usuarios', user_path) %> <!-->
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__2503154259109606406_46915543904240'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:15:37 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<!--<%= link_to('Listado de Usuarios', user_path) %> <!-->
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__1865704018213153996_70264999259120'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:16:22 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (6.1ms)
+Completed 200 OK in 928ms (Views: 927.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:16:37 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"user"}, missing required keys: [:id]):
+    2:   
+    3: <p>
+    4:   <%= link_to('Listado de Residencias', residences_path )%>
+    5: 	<!--<%= link_to('Listado de Usuarios', user_path) %> <!-->
+    6:     <a href="residences_path" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Listado de Residencias</a>
+    7:     </p>
+    8:  </div>
+  
+app/views/residences/home.html.erb:5:in `_app_views_residences_home_html_erb__1865704018213153996_70264960375100'
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:17:25 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (0.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+Completed 200 OK in 88ms (Views: 86.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences_path" for 127.0.0.1 at 2018-11-10 00:19:38 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/residences_path"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (32.1ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "bariloche"], ["location", "Neuquen"], ["description", "bypass"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-10 03:20:27.689038"], ["updated_at", "2018-11-10 03:20:27.689038"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "starosa"], ["location", "La Pampa, Argentina, America del sur, La tierra, Via lactea"], ["description", "tiene el ombu"], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-10 03:20:27.727070"], ["updated_at", "2018-11-10 03:20:27.727070"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "lp"], ["location", "Neuquen"], ["description", "ntc gato"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-10 03:20:27.733453"], ["updated_at", "2018-11-10 03:20:27.733453"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "gonnet"], ["location", "Neuquen"], ["description", "tincho "], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-10 03:20:27.739399"], ["updated_at", "2018-11-10 03:20:27.739399"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (19.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "pepe"], ["last_name", "Argento"], ["email", "peperacing@gmail.com"], ["password", "chevy123"], ["genre", "masculino"], ["age", 52], ["user_type", 2], ["created_at", "2018-11-10 03:20:27.767484"], ["updated_at", "2018-11-10 03:20:27.767484"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "dardo"], ["last_name", "Fuseneco"], ["email", "mariTeAmo@gmail.com"], ["password", "mGustaLaNoche"], ["genre", "masculino"], ["age", 52], ["user_type", 2], ["created_at", "2018-11-10 03:20:27.791995"], ["updated_at", "2018-11-10 03:20:27.791995"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "mari"], ["last_name", "Fuseneco"], ["email", "mariaelenaf@gmail.com"], ["password", "rusia145"], ["genre", "femenino"], ["age", 52], ["user_type", 2], ["created_at", "2018-11-10 03:20:27.798213"], ["updated_at", "2018-11-10 03:20:27.798213"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (17.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (19.8ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "bariloche"], ["location", "Neuquen"], ["description", "bypass"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-10 03:27:14.640232"], ["updated_at", "2018-11-10 03:27:14.640232"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "starosa"], ["location", "La Pampa, Argentina, America del sur, La tierra, Via lactea"], ["description", "tiene el ombu"], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-10 03:27:14.663881"], ["updated_at", "2018-11-10 03:27:14.663881"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "lp"], ["location", "Neuquen"], ["description", "ntc gato"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-10 03:27:14.669793"], ["updated_at", "2018-11-10 03:27:14.669793"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "gonnet"], ["location", "Neuquen"], ["description", "tincho "], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-10 03:27:14.675891"], ["updated_at", "2018-11-10 03:27:14.675891"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (45.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "pepe"], ["last_name", "Argento"], ["email", "peperacing@gmail.com"], ["password", "chevy123"], ["genre", "masculino"], ["age", 52], ["user_type", 2], ["created_at", "2018-11-10 03:27:14.708267"], ["updated_at", "2018-11-10 03:27:14.708267"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "dardo"], ["last_name", "Fuseneco"], ["email", "mariTeAmo@gmail.com"], ["password", "mGustaLaNoche"], ["genre", "masculino"], ["age", 52], ["user_type", 2], ["created_at", "2018-11-10 03:27:14.757495"], ["updated_at", "2018-11-10 03:27:14.757495"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "mari"], ["last_name", "Fuseneco"], ["email", "mariaelenaf@gmail.com"], ["password", "rusia145"], ["genre", "femenino"], ["age", 52], ["user_type", 2], ["created_at", "2018-11-10 03:27:14.763676"], ["updated_at", "2018-11-10 03:27:14.763676"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-11-10 00:27:25 -0300
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 804ms (Views: 785.1ms | ActiveRecord: 0.0ms)
+
+
