@@ -387,3 +387,38 @@ Completed 200 OK in 799ms (Views: 733.7ms | ActiveRecord: 38.5ms)
   [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-11-14 14:22:10 -0300
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+Started GET "/" for 127.0.0.1 at 2018-11-14 14:22:14 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (3494.0ms)
+  Rendered residences/home.html.erb within layouts/application (2222.0ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+Completed 200 OK in 2986ms (Views: 2980.7ms | ActiveRecord: 0.0ms)
+
+
+  Rendered layouts/_header.html.erb (9.6ms)
+Completed 200 OK in 4382ms (Views: 4288.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-14 14:22:26 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (1.6ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (277.0ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+Completed 200 OK in 574ms (Views: 404.6ms | ActiveRecord: 127.4ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-11-14 14:22:29 -0300
+Processing by UserController#index as HTML
+  Rendering user/index.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered user/index.html.erb within layouts/application (154.2ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+Completed 200 OK in 473ms (Views: 411.1ms | ActiveRecord: 41.6ms)
+
+
