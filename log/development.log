@@ -346,3 +346,44 @@ Processing by ResidencesController#index as HTML
 Completed 200 OK in 297ms (Views: 280.8ms | ActiveRecord: 0.8ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
+  [1m[35m (28.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-11-14 12:43:19 -0300
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1597.7ms)
+  Rendered layouts/_header.html.erb (9.0ms)
+Completed 200 OK in 2316ms (Views: 2185.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-14 12:43:29 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (1.7ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (262.1ms)
+  Rendered layouts/_header.html.erb (17.0ms)
+Completed 200 OK in 711ms (Views: 556.7ms | ActiveRecord: 86.5ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-11-14 12:43:33 -0300
+Processing by UserController#index as HTML
+  Rendering user/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered user/index.html.erb within layouts/application (292.1ms)
+  Rendered layouts/_header.html.erb (25.5ms)
+Completed 200 OK in 799ms (Views: 733.7ms | ActiveRecord: 38.5ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
+  [1m[35m (5.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
