@@ -47,3 +47,234 @@ Completed 500 Internal Server Error in 69ms (ActiveRecord: 10.5ms)
 ActiveRecord::RecordNotFound (Couldn't find UserType with 'id'=2):
   
 app/views/user/show.html.erb:12:in `_app_views_user_show_html_erb___4307074884499514921_70277424782360'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (17.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-11-13 21:14:51 -0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (364.3ms)
+  Rendered layouts/_header.html.erb (6.3ms)
+Completed 200 OK in 556ms (Views: 544.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-13 21:14:54 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (73.3ms)
+  Rendered layouts/_header.html.erb (11.7ms)
+Completed 200 OK in 238ms (Views: 203.0ms | ActiveRecord: 22.3ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-11-13 21:14:56 -0300
+Processing by UserController#index as HTML
+  Rendering user/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered user/index.html.erb within layouts/application (104.2ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+Completed 200 OK in 280ms (Views: 264.2ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/user/1" for 127.0.0.1 at 2018-11-13 21:14:58 -0300
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mUserType Load (0.4ms)[0m  [1m[34mSELECT  "user_types".* FROM "user_types" WHERE "user_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (22.2ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 10.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find UserType with 'id'=2):
+  
+app/views/user/show.html.erb:12:in `_app_views_user_show_html_erb___2313787802542176925_70117589365000'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (17.5ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "bariloche"], ["location", "Neuquen"], ["description", "bypass"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-14 00:15:12.290217"], ["updated_at", "2018-11-14 00:15:12.290217"]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "starosa"], ["location", "La Pampa, Argentina, America del sur, La tierra, Via lactea"], ["description", "tiene el ombu"], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-14 00:15:12.314880"], ["updated_at", "2018-11-14 00:15:12.314880"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "lp"], ["location", "Neuquen"], ["description", "ntc gato"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-14 00:15:12.325017"], ["updated_at", "2018-11-14 00:15:12.325017"]]
+  [1m[35m (23.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "residences" ("name", "location", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "gonnet"], ["location", "Neuquen"], ["description", "tincho "], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-14 00:15:12.353056"], ["updated_at", "2018-11-14 00:15:12.353056"]]
+  [1m[35m (12.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (31.2ms)[0m  [1m[32mINSERT INTO "user_types" ("userType", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["userType", "Administrador"], ["created_at", "2018-11-14 00:15:12.381311"], ["updated_at", "2018-11-14 00:15:12.381311"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_types" ("userType", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["userType", "Estándar"], ["created_at", "2018-11-14 00:15:12.418928"], ["updated_at", "2018-11-14 00:15:12.418928"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "user_types" ("userType", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["userType", "Premium"], ["created_at", "2018-11-14 00:15:12.424698"], ["updated_at", "2018-11-14 00:15:12.424698"]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (9.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Pepe"], ["last_name", "Argento"], ["email", "peperacing@gmail.com"], ["password", "chevy123"], ["genre", "masculino"], ["age", 52], ["card_number", "4598423654912035"], ["user_type", 2], ["created_at", "2018-11-14 00:15:12.453044"], ["updated_at", "2018-11-14 00:15:12.453044"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Dardo"], ["last_name", "Fuseneco"], ["email", "mariteamo@gmail.com"], ["password", "mGustaLaNoche"], ["genre", "masculino"], ["age", 49], ["card_number", "78651205023545812"], ["user_type", 2], ["created_at", "2018-11-14 00:15:12.469437"], ["updated_at", "2018-11-14 00:15:12.469437"]]
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Mari"], ["last_name", "Fuseneco"], ["email", "mariaelenaf@gmail.com"], ["password", "rusia145"], ["genre", "femenino"], ["age", 45], ["card_number", "4565987845650235"], ["user_type", 3], ["created_at", "2018-11-14 00:15:12.486692"], ["updated_at", "2018-11-14 00:15:12.486692"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Cristina"], ["last_name", "Perez"], ["email", "crisperez@gmail.com"], ["password", "RodolfoTelefe"], ["genre", "femenino"], ["age", 51], ["card_number", "4565236578981545"], ["user_type", 3], ["created_at", "2018-11-14 00:15:12.495670"], ["updated_at", "2018-11-14 00:15:12.495670"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Guillermo"], ["last_name", "Francella"], ["email", "francellaactuacion@gmail.com"], ["password", "actuacionCineTeatro"], ["genre", "masculino"], ["age", 52], ["card_number", "7802654230219875"], ["user_type", 3], ["created_at", "2018-11-14 00:15:12.502422"], ["updated_at", "2018-11-14 00:15:12.502422"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2018-11-13 21:15:19 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+Completed 200 OK in 98ms (Views: 96.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 21:15:20 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+Completed 200 OK in 88ms (Views: 87.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-11-13 21:15:22 -0300
+Processing by UserController#index as HTML
+  Rendering user/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered user/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (5.7ms)
+Completed 200 OK in 79ms (Views: 76.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/user/10" for 127.0.0.1 at 2018-11-13 21:15:26 -0300
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mUserType Load (0.4ms)[0m  [1m[34mSELECT  "user_types".* FROM "user_types" WHERE "user_types"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_header.html.erb (7.9ms)
+Completed 200 OK in 135ms (Views: 127.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/user/3" for 127.0.0.1 at 2018-11-13 21:15:29 -0300
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mUserType Load (0.4ms)[0m  [1m[34mSELECT  "user_types".* FROM "user_types" WHERE "user_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `last' for nil:NilClass):
+    15: 	<p class="card-text">e-mail: <%=@user.email%></p>
+    16: 	<p class="card-text">Genero: <%=@user.genre%> </p>
+    17: 	<p class="card-text">Edad: <%=@user.age%> </p>
+    18: 	<p class="card-text">Tarjeta nro: XXXX-XXXX-XXXX-<%=@user.card_number.last(4)%></p>
+    19:       </div>
+    20: 	</div>
+    21: 	<p></p>
+  
+app/views/user/show.html.erb:18:in `_app_views_user_show_html_erb___2313787802542176925_70117590798820'
+Started GET "/" for 127.0.0.1 at 2018-11-13 21:15:46 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (26.7ms)
+  Rendered layouts/_header.html.erb (5.8ms)
+Completed 200 OK in 114ms (Views: 112.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 21:15:48 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 94ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-11-13 21:16:08 -0300
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 70ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-13 21:16:11 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (3.5ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (17.7ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+Completed 200 OK in 139ms (Views: 134.5ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-11-13 21:16:12 -0300
+Processing by UserController#index as HTML
+  Rendering user/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered user/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 79ms (Views: 77.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/user/8" for 127.0.0.1 at 2018-11-13 21:16:15 -0300
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  Rendering user/show.html.erb within layouts/application
+  [1m[36mUserType Load (1.8ms)[0m  [1m[34mSELECT  "user_types".* FROM "user_types" WHERE "user_types"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered user/show.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 85ms (Views: 76.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-11-13 21:16:17 -0300
+Processing by UserController#index as HTML
+  Rendering user/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendered user/index.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+Completed 200 OK in 87ms (Views: 85.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-13 21:16:20 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.5ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (26.9ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+Completed 200 OK in 152ms (Views: 150.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/residences/new" for 127.0.0.1 at 2018-11-13 21:16:23 -0300
+Processing by ResidencesController#new as HTML
+  Rendering residences/new.html.erb within layouts/application
+  Rendered residences/_form.html.erb (22.6ms)
+  Rendered residences/new.html.erb within layouts/application (32.2ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+Completed 200 OK in 113ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-13 21:16:26 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (0.3ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+Completed 200 OK in 90ms (Views: 88.6ms | ActiveRecord: 0.3ms)
+
+
