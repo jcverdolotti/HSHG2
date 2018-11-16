@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-r= Residence.create(name: 'bariloche', description: 'bypass', location: 'Neuquen', cost: 1512, people_amount: 3, reserved: true)
-r1= Residence.create(name: 'starosa', description: 'tiene el ombu', location: 'La Pampa, Argentina, America del sur, La tierra, Via lactea', cost: 1512, people_amount: 3)
-r2= Residence.create(name: 'lp', description: 'ntc gato', location: 'Neuquen', cost: 1512, people_amount: 3, reserved: true)
-r3= Residence.create(name: 'gonnet', description: 'tincho ', location: 'Neuquen', cost: 1512, people_amount: 3)
+r= Residence.create(name: 'Barilochense', description: 'bypass', province: 'Neuquen',country: 'Argentina',location: 'cerro catedral 123', cost: 1512, people_amount: 3, reserved: true)
+r1= Residence.create(name: 'La Anonima', description: 'tiene el ombu', province: 'La Pampa, America del sur, La tierra, Via lactea',location:'pio 12 1526',country: 'Argentina', cost: 1512, people_amount: 3)
+r2= Residence.create(name: 'Bosquecito', description: 'ntc gato', province: 'BSAS',country: 'Argentina',location: '60 y 118', cost: 1512, people_amount: 3, reserved: true)
+r3= Residence.create(name: 'Gonné', description: 'tincho ', province: 'Neuquen',country: 'Argentina',location: '480 1520', cost: 1512, people_amount: 3)
 
 ut = UserType.create(userType: "Administrador")
 ut = UserType.create(userType: "Estándar")

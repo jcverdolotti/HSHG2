@@ -422,3 +422,95 @@ Processing by UserController#index as HTML
 Completed 200 OK in 473ms (Views: 411.1ms | ActiveRecord: 41.6ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-11-14 14:54:07 -0300
+  [1m[35m (51.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ResidencesController#home as HTML
+  Rendering residences/home.html.erb within layouts/application
+  Rendered residences/home.html.erb within layouts/application (1930.7ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+Completed 200 OK in 2904ms (Views: 2793.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/residences" for 127.0.0.1 at 2018-11-14 14:56:59 -0300
+Processing by ResidencesController#index as HTML
+  Rendering residences/index.html.erb within layouts/application
+  [1m[36mResidence Load (33.0ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  Rendered residences/index.html.erb within layouts/application (355.5ms)
+  Rendered layouts/_header.html.erb (21.0ms)
+Completed 200 OK in 784ms (Views: 573.6ms | ActiveRecord: 142.7ms)
+
+
+  [1m[36mResidence Load (61.6ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
+  [1m[35m (83.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (21.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (29.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (182.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "development"[0m
+  [1m[35m (137.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "test"[0m
+  [1m[35m (35.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6643483464595264770)[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateResidences (20181106151852)
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (48.7ms)[0m  [1m[35mCREATE TABLE "residences" ("id" bigserial primary key, "name" character varying, "country" character varying, "location" character varying, "province" character varying, "description" character varying, "date" date, "cost" decimal, "people_amount" integer, "logic_delete" boolean, "reserved" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (6.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181106151852"]]
+  [1m[35m (26.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20181109201352)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (41.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "name" character varying, "last_name" character varying, "email" character varying, "password" character varying, "genre" character varying, "age" integer, "card_number" character varying, "card_SC" character varying, "card_expDate" date, "user_type" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181109201352"]]
+  [1m[35m (7.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUserTypes (20181109201432)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (22.3ms)[0m  [1m[35mCREATE TABLE "user_types" ("id" bigserial primary key, "userType" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (13.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181109201432"]]
+  [1m[35m (20.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (9.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (8.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-11-16 18:55:44.995953"], ["updated_at", "2018-11-16 18:55:44.995953"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6643483464595264770)[0m
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "residences" ("name", "country", "location", "province", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Barilochense"], ["country", "Argentina"], ["location", "cerro catedral 123"], ["province", "Neuquen"], ["description", "bypass"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-16 18:58:56.411923"], ["updated_at", "2018-11-16 18:58:56.411923"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "residences" ("name", "country", "location", "province", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "La Anonima"], ["country", "Argentina"], ["location", "pio 12 1526"], ["province", "La Pampa, America del sur, La tierra, Via lactea"], ["description", "tiene el ombu"], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-16 18:58:56.422285"], ["updated_at", "2018-11-16 18:58:56.422285"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "residences" ("name", "country", "location", "province", "description", "cost", "people_amount", "reserved", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Bosquecito"], ["country", "Argentina"], ["location", "60 y 118"], ["province", "BSAS"], ["description", "ntc gato"], ["cost", "1512.0"], ["people_amount", 3], ["reserved", "t"], ["created_at", "2018-11-16 18:58:56.430506"], ["updated_at", "2018-11-16 18:58:56.430506"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "residences" ("name", "country", "location", "province", "description", "cost", "people_amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Gonné"], ["country", "Argentina"], ["location", "480 1520"], ["province", "Neuquen"], ["description", "tincho "], ["cost", "1512.0"], ["people_amount", 3], ["created_at", "2018-11-16 18:58:56.438672"], ["updated_at", "2018-11-16 18:58:56.438672"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "user_types" ("userType", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["userType", "Administrador"], ["created_at", "2018-11-16 18:58:56.552263"], ["updated_at", "2018-11-16 18:58:56.552263"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "user_types" ("userType", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["userType", "Estándar"], ["created_at", "2018-11-16 18:58:56.559556"], ["updated_at", "2018-11-16 18:58:56.559556"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "user_types" ("userType", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["userType", "Premium"], ["created_at", "2018-11-16 18:58:56.565400"], ["updated_at", "2018-11-16 18:58:56.565400"]]
+  [1m[35m (26.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Pepe"], ["last_name", "Argento"], ["email", "peperacing@gmail.com"], ["password", "chevy123"], ["genre", "masculino"], ["age", 52], ["card_number", "4598423654912035"], ["user_type", 2], ["created_at", "2018-11-16 18:58:56.691633"], ["updated_at", "2018-11-16 18:58:56.691633"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Dardo"], ["last_name", "Fuseneco"], ["email", "mariteamo@gmail.com"], ["password", "mGustaLaNoche"], ["genre", "masculino"], ["age", 49], ["card_number", "78651205023545812"], ["user_type", 2], ["created_at", "2018-11-16 18:58:56.700445"], ["updated_at", "2018-11-16 18:58:56.700445"]]
+  [1m[35m (23.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Mari"], ["last_name", "Fuseneco"], ["email", "mariaelenaf@gmail.com"], ["password", "rusia145"], ["genre", "femenino"], ["age", 45], ["card_number", "4565987845650235"], ["user_type", 3], ["created_at", "2018-11-16 18:58:56.729736"], ["updated_at", "2018-11-16 18:58:56.729736"]]
+  [1m[35m (15.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Cristina"], ["last_name", "Perez"], ["email", "crisperez@gmail.com"], ["password", "RodolfoTelefe"], ["genre", "femenino"], ["age", 51], ["card_number", "4565236578981545"], ["user_type", 3], ["created_at", "2018-11-16 18:58:56.752147"], ["updated_at", "2018-11-16 18:58:56.752147"]]
+  [1m[35m (16.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "email", "password", "genre", "age", "card_number", "user_type", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["name", "Guillermo"], ["last_name", "Francella"], ["email", "francellaactuacion@gmail.com"], ["password", "actuacionCineTeatro"], ["genre", "masculino"], ["age", 52], ["card_number", "7802654230219875"], ["user_type", 3], ["created_at", "2018-11-16 18:58:56.774277"], ["updated_at", "2018-11-16 18:58:56.774277"]]
+  [1m[35m (16.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mResidence Load (1.7ms)[0m  [1m[34mSELECT "residences".* FROM "residences"[0m
