@@ -15,10 +15,24 @@
     </div>
 
     <div class="form-group" >
-        <%= f.label :location, 'Localización' %>
-        <%= f.text_field :location, class: 'form-control', placeholder: 'Ingrese la localización de la residencia',
+        <%= f.label :country, 'País' %>
+        <%= f.text_field :country, class: 'form-control', placeholder: 'Ingrese el país de la residencia',
             required: true %>
     </div>
+
+    <div class="form-group" >
+        <%= f.label :province, 'Provincia/Estado' %>
+        <%= f.text_field :province, class: 'form-control', placeholder: 'Ingrese la provincia/estado de la residencia',
+            required: true %>
+    </div>
+
+    <div class="form-group" >
+        <%= f.label :location, 'Dirección' %>
+        <%= f.text_field :location, class: 'form-control', placeholder: 'Ingrese la dirección de la residencia',
+            required: true %>
+    </div>
+
+
 
     <div class="form-group" >
      <%= f.label :cost, 'Costo semanal' %>

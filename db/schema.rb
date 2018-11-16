@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20181109201432) do
     t.integer "people_amount"
     t.boolean "logic_delete"
     t.boolean "reserved"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

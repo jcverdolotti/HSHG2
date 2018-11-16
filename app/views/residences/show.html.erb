@@ -1,9 +1,22 @@
-<h1>'<%=@residence.name%>'</h1>
+<h1><%=@residence.name%></h1>
 
-<div>
-<hr>
 
-<p>
-<%=@residence.description%>
-</p>
+<div class="card" style="width: 18rem;" >
+	<span class="border border-dark">
+  <img class="card-img-top"src =<%=@residence.image%> "">
+  <div class="card-body">
+    <h5 class="card-title"><%=@residence.name%></h5>
+    
+	<h6 class="card-subtitle mb-2 text-muted"><%=@residence.province%>,<%=@residence.country%>
+	</h6>
+    
+	<p class="card-text">Dirección: <%=@residence.location%></p>
+	<p class="card-text">Descripción: <%=@residence.description%> </p>
+	<p class="card-text">Costo: <%=@residence.cost%> </p>
+	<p class="card-text">Huéspedes: <%=@residence.people_amount%></p>
+      </div>
+	</div>
+	<p></p>
+	</span>
+
 <%=link_to 'Volver', residences_path, class: 'btn btn-secondary'%>
