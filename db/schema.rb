@@ -17,7 +17,9 @@ ActiveRecord::Schema.define(version: 20181109201432) do
 
   create_table "residences", force: :cascade do |t|
     t.string "name"
+    t.string "country"
     t.string "location"
+    t.string "province"
     t.string "description"
     t.date "date"
     t.decimal "cost"
