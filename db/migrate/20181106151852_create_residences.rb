@@ -11,6 +11,7 @@ class CreateResidences < ActiveRecord::Migration[5.1]
       t.integer :people_amount
       t.boolean :logic_delete
       t.boolean :reserved
+      t.string :image
 
       t.timestamps
     end
