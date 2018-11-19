@@ -229,7 +229,7 @@ config.secret_key = 'cbfc55ee0489c75a20bdcaf16f8b5fe1b7f6d4ae2806084b722a7a9050d
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
