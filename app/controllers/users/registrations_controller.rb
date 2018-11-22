@@ -1,27 +1,26 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
 
   #GET /resource/sign_up
   def new
-     super
-     @user=User.new
-  end
+    super
+    @user=User.new
+ end
 
-  #POST /resource
-   def create
-     super
-     @user = User.new(params.require(:user).permit(:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate, :user_type))
-     
+ #POST /resource
+  def create
+    super
+    @user = User.new(params.require(:user).permit(:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate))
+    
      if @user.save
       redirect_to user_index_path, notice: "El usuario #{@user.name} se creó con éxito."
      else
-      render :new
+       redirect_to root_path, notice:"No se creo el usuario"
      end
-  end
+ end
 
 
   # GET /resource/edit
@@ -50,15 +49,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # protected
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+   #If you have extra params to permit, append them to the sanitizer.
+   def configure_sign_up_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate])
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+   def configure_account_update_params
+     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate])
+   end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
