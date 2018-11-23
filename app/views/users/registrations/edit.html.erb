@@ -3,6 +3,28 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <div class="form-group" >
+            <%= f.label :name, 'Nombre', margin: 3 %>
+            <%= f.text_field :name, class: 'form-control', placeholder: 'Ingrese el nombre de usuario',
+                required: true %>
+        </div>
+
+      <div class="field">
+        <%= f.label :last_name, 'Apellido' %><br />
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :genre, 'Genero' %><br />
+        <%= f.text_field :genre, autofocus: true, autocomplete: "genre" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :age, 'Edad'%><br />
+        <%= f.text_field :age, autofocus: true, autocomplete: "date" %>
+      </div>
+
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -38,6 +60,6 @@
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class: 'btn btn-danger'%></p>
 
 <%= link_to "Back", :back %>
