@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20181122140256) do
     t.string "card_number"
     t.string "card_SC"
     t.date "card_expDate"
-    t.integer "user_type", default: 1
+    t.integer "user_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

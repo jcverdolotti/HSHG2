@@ -1,0 +1,22 @@
+
+<h1> Detalle Usuario #<%=@user.id%>
+</h1>
+
+
+<div class="card" style="width: 18rem;" >
+	<span class="border border-dark">
+  <img class="card-img-top"src = "https://pbs.twimg.com/profile_images/930996540977631237/cAN7Oe4z_400x400.jpg">
+  <div class="card-body">
+    <h5 class="card-title"><%=@user.name%> <%=@user.last_name%></h5>
+    
+	
+ 
+	<p class="card-text">e-mail: <%=@user.email%></p>
+	<p class="card-text">Genero: <%=@user.genre%> </p>
+	<p class="card-text">Edad: <%=@user.age%> </p>
+	<p class="card-text">Tarjeta nro: XXXX-XXXX-XXXX-<%=@user.card_number.last(4)%></p>
+      </div>
+	</div>
+	<p></p>
+	</span>
+	  <%=link_to 'Volver', vistas_path, class: 'btn btn-secondary'%> 
