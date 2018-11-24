@@ -1,22 +1,24 @@
-<h1><%=@residence.name%></h1>
-
-
-<div class="card" style="width: 18rem;" >
-	<span class="border border-dark">
-  <img class="card-img-top"src=<%=@residence.image%>>
-  <div class="card-body">
-    <h5 class="card-title"><%=@residence.name%></h5>
-    
-	<h6 class="card-subtitle mb-2 text-muted"><%=@residence.province%>,<%=@residence.country%>
-	</h6>
-    
+ <div class="container" >
+<img class="rounded" style="width: 67.5rem;"" src=<%= @residence.image %>>
+     
+  	
+	<div class="jumbotron">
+	<div align= "center">
+  <h1 class="display-3" class="font-weight-bold"><%= @residence.name %></h1>
+  <p class="lead"><%= @residence.description %></p>
+  <hr class="my-4">
+  <p></p>
+  </div>
+  
+	
+    <p></p>
 	<p class="card-text">Dirección: <%=@residence.location%></p>
-	<p class="card-text">Descripción: <%=@residence.description%> </p>
-	<p class="card-text">Costo: <%=@residence.cost%> </p>
-	<p class="card-text">Huéspedes: <%=@residence.people_amount%></p>
-      </div>
-	</div>
-	<p></p>
-	</span>
+	<p class="card-text"><%=@residence.country%>, <%=@residence.province%> </p>
+	<p class="card-text">$ <%=@residence.cost%> </p>
+	<p class="card-text"> <%=@residence.people_amount%> huéspedes</p>
+     </div>
+     
+     
 
 <%=link_to 'Volver', residences_path, class: 'btn btn-secondary'%>
+</div> 

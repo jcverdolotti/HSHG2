@@ -52,7 +52,7 @@ class ResidencesController < ApplicationController
 
 
     def residence_params
-        params.require(:residence).permit(:location, :description, :date, :cost, :people_amount, :id, :name, :image)
+        params.require(:residence).permit(:location, :description, :date, :cost, :people_amount, :id, :name, :image, :country, :province)
     end
 
 end
