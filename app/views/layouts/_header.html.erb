@@ -1,5 +1,5 @@
 <header>
-<div class="navbar navbar-dark navbar-toggler navbar-fixed-top navbar-expand-lg " role="navigation">
+<div class="navbar navbar-dark navbar-toggler navbar-fixed-top navbar-expand-lg " width="100%" role="navigation">
           <!-- Image and text --> 
       <nav class="navbar navbar-light bg-dark navbar-collapse" >
               <%= image_tag("logo.svg",size: "60x60", class:"d-inline-block align-top")%>
@@ -15,20 +15,25 @@
                      
                    </ul>
                   </div>
-
-                  <a class="btn btn-outline-light" href="/users/sign_in">Login</a>
-
-                     <!--  <%= link_to("Login", new_user_session_path, class:"nav-link") %> -->
-                  
+                  <div >
+                    <% if signed_in? %>
+                      <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Usuario</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                          <%= link_to "Ver perfil", vista_path(current_user), class: "dropdown-item"%>
+                          <%=link_to "Editar Perfil", edit_user_registration_path, class:"dropdown-item"%>
+                          <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
+                        </div>
+                      </div>
+                    <% else %>
+                      <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= link_to "Registrarse", new_user_registration_path,class:"btn btn-outline-light" %>
+                        <%= link_to "Ingresar", new_user_session_path,class:"btn btn-outline-light" %>
+                        </div>
+                    <% end %>
+                  </div>        
       </nav>
-      <div>
-  <% if signed_in? %>
-    <%=link_to "Cuenta", edit_user_registration_path%>
-    <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Registrarse", new_user_registration_path %>
-    <%= link_to "Ingresar", new_user_session_path %>
-  <% end %>
-</div>
+      
 </div>
 </header>
