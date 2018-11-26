@@ -8,8 +8,9 @@
     <tr>
       <th width="5%" >#</th>
       <th width="15%">Apellido</th>
-      <th width="20%">Nombre</th>
-      <th width="20%">Email</th>
+      <th width="15%">Nombre</th>
+      <th width="15%">Email</th>
+      <th width="15%">Membresía</th>
       <th colspan="2"></th>
     </tr>
 
@@ -18,11 +19,14 @@
 
   <tbody>
     <% @users.each do |user| %>
+      <%if user.user_type != 1%>
       <tr>
         <td><%= user.id %></td>
         <td><%= link_to user.last_name , vista_path(user) %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%=UserType.find(@user.user_type).userType%></td>
       <%end%>  
+      <%end%>
 
   </tbody>
