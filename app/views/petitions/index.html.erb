@@ -22,11 +22,11 @@
         <td><%= link_to p.email , vista_path(User.where(email: p.email).take.id) %></td>
         <td><%= UserType.find(p.current_uType).userType%></td> 
         
-        <%if p.current_uType == '2'%>
+        <%if p.current_uType == 2%>
           
           <td> <%=link_to 'Ascender Membresía',edit_vista_path(User.where(email: p.email).take.id), class: 'btn btn-success', data: {confirm: 'Ascenderá el usuario a categoría Premium. Continuar?'}%> </td> 
         
-        <%elsif p.current_uType == '3'%>
+        <%elsif p.current_uType == 3%>
           
           <td> <%=link_to 'Degradar Membresía',edit_vista_path(User.where(email: p.email).take.id), class: 'btn btn-danger', data: {confirm: 'Descenderá el usuario a categoría Estándar. Continuar?'}%> </td>     
         
