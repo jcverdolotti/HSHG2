@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181124001151) do
+ActiveRecord::Schema.define(version: 20181126142852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "petitions", force: :cascade do |t|
+    t.string "email"
+    t.string "current_uType"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "residences", force: :cascade do |t|
     t.string "name"
@@ -32,7 +39,7 @@ ActiveRecord::Schema.define(version: 20181124001151) do
   end
 
   create_table "user_types", force: :cascade do |t|
-    t.string "userType", default: "2"
+    t.string "userType"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,11 +57,7 @@ ActiveRecord::Schema.define(version: 20181124001151) do
     t.string "card_number"
     t.string "card_SC"
     t.date "card_expDate"
-<<<<<<< HEAD
     t.integer "user_type", default: 2
-=======
-    t.integer "user_type", default: 1
->>>>>>> 37a61702d246ffd4a548712e9ac71ffc44bcdf0c
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -17,9 +17,13 @@ class VistasController < ApplicationController
         end
 
         if @user.save
-          redirect_to vistas_path  data: "Membresía modificada a : #{@user.user_type}." 
+          redirect_to petitions_path
+          p=Petition.where(email: @user.email).take
+          p.destroy
         else
             render :show
         end
     end
+
+
     end

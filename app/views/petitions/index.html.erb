@@ -1,0 +1,40 @@
+<h2 style="margin-left: 10px;">Peticiones</h2>
+<br>
+<div class:'container' style="margin-left: 10px;">
+<table class="table table-striped">
+  
+  <thead>
+    <tr>
+      <th width="5%" >#</th>
+      <th width="15%">e-mail</th>
+      <th width="20%">Membresía Actual</th>
+      <th colspan="2"></th>
+    </tr>
+
+
+  </thead>
+
+  <tbody>
+   
+    <% @petitions.each do |p| %>
+      <tr>
+        <td><%= p.id %></td>
+        <td><%= link_to p.email , vista_path(User.where(email: p.email).take.id) %></td>
+        <td><%= UserType.find(p.current_uType).userType%></td> 
+        
+        <%if p.current_uType == '2'%>
+          
+          <td> <%=link_to 'Ascender Membresía',edit_vista_path(User.where(email: p.email).take.id), class: 'btn btn-success', data: {confirm: 'Ascenderá el usuario a categoría Premium. Continuar?'}%> </td> 
+        
+        <%elsif p.current_uType == '3'%>
+          
+          <td> <%=link_to 'Degradar Membresía',edit_vista_path(User.where(email: p.email).take.id), class: 'btn btn-danger', data: {confirm: 'Descenderá el usuario a categoría Estándar. Continuar?'}%> </td>     
+        
+        <%end%>
+
+      </tr>
+      <%end%>  
+
+  </tbody>
+
+</table>

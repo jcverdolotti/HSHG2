@@ -15,11 +15,19 @@
 	<p class="card-text">Genero: <%=@user.genre%> </p>
 	<p class="card-text">Edad: <%=@user.age%> </p>
 	<p class="card-text">Tarjeta nro: XXXX-XXXX-XXXX-<%=@user.card_number.last(4)%></p>
+	
 	<%if @user.user_type == 2%>
-		<%=link_to 'Ascender Membresía',edit_vista_path(@user), class: 'btn btn-success', data: {confirm: 'Ascenderá el usuario a categoría Premium. Continuar?'}%>
+		
+
+		<%=link_to 'Quiero ser Premium', new_petition_path, class: 'btn btn-success'%>
+	
+
 	<%elsif @user.user_type == 3%>
-		<%=link_to 'Degradar Membresía',edit_vista_path(@user), class: 'btn btn-danger', data: {confirm: 'Descenderá el usuario a categoría Estándar. Continuar?'}%>
+		
+		<%=link_to 'Degradar Membresía', new_petition_path, class: 'btn btn-danger'%>
+	
 	<%end %>
+    
       </div>
 	</div>
 	<p></p>
