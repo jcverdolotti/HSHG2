@@ -4,19 +4,37 @@
   	
 	<div class="jumbotron">
 	<div align= "center">
-  <h1 class="display-3" class="font-weight-bold"><%= @residence.name %></h1>
+  <h1 class="display-3" class="font-weight-bold" class="text-uppercase"><%= @residence.name %></h1>
   <p class="lead"><%= @residence.description %></p>
   <hr class="my-4">
   <p></p>
   </div>
   
-	
-    <p></p>
-	<p class="card-text">Dirección: <%=@residence.location%></p>
-	<p class="card-text"><%=@residence.country%>, <%=@residence.province%> </p>
-	<p class="card-text">$ <%=@residence.cost%> </p>
-	<p class="card-text"> <%=@residence.people_amount%> huéspedes</p>
-     </div>
+	<div class="container">
+   <div class="row">
+        <div class="col-sm">País: <%=@residence.country%></div>
+        <div class="col-sm">Provincia: <%=@residence.province%> </div>
+        <div class="col-sm">Dirección: <%=@residence.location%></div>
+        <div class="col-sm"> <%=@residence.people_amount%> huéspedes</div>
+        <div class="col-sm">Precio: $<%=@residence.cost%></div>
+   </div>
+ 
+
+  <p></p>
+    <div class="container">
+      <div class="row">
+      <div class="col-sm">
+      <button type="button" class="btn btn-success btn-lg">Reservar</button>
+      </div>
+
+      <button  type="button" class="btn btn-primary btn-lg">Ver disponibilidad</button>
+    </div>
+     
+   </div>
+ </div>
+ </div>
+    
+
      
      
 
