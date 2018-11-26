@@ -3,7 +3,7 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
- <div class="form-group" >
+   <div class="form-group" >
             <%= f.label :name, 'Nombre', margin: 3 %>
             <%= f.text_field :name, class: 'form-control', placeholder: 'Ingrese el nombre de usuario',
                 required: true %>
@@ -58,13 +58,42 @@
       </div>
       <p></p>
 
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password, 'Nueva contraseña'%> <i>(No completar si no desea cambiarla)</i>
+     
+    <% if @minimum_password_length %>
+      <br />
+      <em>(<%= @minimum_password_length %> caracteres minimo)</em>
+      <%= f.password_field :password, class: 'form-control', autocomplete: "new-password", placeholder: 'Nueva contraseña' %>
+   
+    <% end %>
+  </div>
+  <p></p>
+
+  <div class="field">
+    <%= f.label :password_confirmation, 'Repetir contraseña'%><br />
+    <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "new-password", placeholder: 'Confirme su nueva contraseña' %>
+  </div>
+  <p></p>
+
+  <div class="field">
+    <%= f.label :current_password, "Contraseña actual" %> <i>(Necesitamos su contraseña actual para confirmar sus cambios.)</i><br />
+    <%= f.password_field :current_password, class: 'form-control', autocomplete: "current-password", placeholder: 'Contraseña actual' %>
+  </div>
+  <p></p>
+
   <div class="actions">
-    <%= f.submit "Guardar cambios", class: 'btn btn-success' %>
+    <%= f.submit "Guardar cambios" , class: 'btn btn-success' %>
   </div>
 <% end %>
 
 
 
-<p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class: 'btn btn-danger'%></p>
+<p> <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class: 'btn btn-danger'%></p>
 
 <%= link_to "Volver", :back %>
