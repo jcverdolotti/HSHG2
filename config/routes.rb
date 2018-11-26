@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :vistas, :only => [:index]
   resources :vistas, :only => [:edit]
 
-  get '/vistas/veradmin', to: 'vistas#veradmin'
+  get '/veradmin', to: 'vistas#veradmin'
+  get '/editadmin', to: 'vistas#editadmin'
 
   resources :petitions
 

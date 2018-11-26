@@ -18,8 +18,9 @@
 ut = UserType.create(userType: "Administrador")
 ut = UserType.create(userType: "Estándar")
 ut = UserType.create(userType: "Premium")
+ut = UserType.create(userType: "SuperAdministrador")
 
-#u=User.create(name: 'Pepe', last_name: 'Argento', email: 'peperacing@gmail.com', password: 'chevy123', genre: 'masculino', age: 52, user_type: 2, card_number: "4598423654912035")
+u=User.create(name: 'Luis', last_name: 'Ventura', email: 'luisi@gmail.com', password: '123456', genre: 'masculino', age: 52, user_type: 4, card_number: "4598423654912035", card_SC: "456")
 #u1=User.create(name: 'Dardo', last_name: 'Fuseneco', email: 'mariteamo@gmail.com', password: 'mGustaLaNoche', genre: 'masculino', age: 49, user_type: 2,card_number: "78651205023545812")
 #u=User.create(name: 'Mari', last_name: 'Fuseneco', email: 'mariaelenaf@gmail.com', password: 'rusia145', genre: 'femenino', age: 45, user_type: 3, card_number: "4565987845650235")
 #u=User.create(name: 'Cristina', last_name: 'Perez', email: 'crisperez@gmail.com', password: 'RodolfoTelefe', genre: 'femenino', age: 51, user_type: 3, card_number: "4565236578981545")

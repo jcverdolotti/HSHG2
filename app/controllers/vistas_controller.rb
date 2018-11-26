@@ -12,6 +12,19 @@ class VistasController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    def editadmin
+        @user = User.find(params[:id])
+        if @user.user_type == 1
+            @user.attributes = {user_type: '2'}
+        elsif @user.user_type == 2 || @user.user_type == 3
+            @user.attributes = {user_type: '1'}
+        end
+        if @user.save
+            redirect_to veradmin_path
+        end
+    end
+
+
     def edit
         @user = User.find(params[:id])
         if @user.user_type == 2

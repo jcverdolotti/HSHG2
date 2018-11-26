@@ -10,7 +10,6 @@
       <th width="15%">Apellido</th>
       <th width="15%">Nombre</th>
       <th width="15%">Email</th>
-      <th width="15%">Membresía</th>
       <th colspan="2"></th>
     </tr>
 
@@ -19,12 +18,16 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= link_to user.last_name , vista_path(user) %></td>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%=UserType.find(@user.user_type).userType%></td>
+      <%if user.user_type == 1%>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.last_name , vista_path(user) %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <%if current_user.user_type == 4 && user.user_type == 1%>
+            <td><%= link_to 'Eliminar Administrador', editadmin_path(:id => user.id), class: 'btn btn-danger btn-sm' %></td>
+          <%end%>
+        </tr>
       <%end%>  
-
+    <% end %>
   </tbody>

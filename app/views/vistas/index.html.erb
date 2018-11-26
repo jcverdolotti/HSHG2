@@ -19,14 +19,17 @@
 
   <tbody>
     <% @users.each do |user| %>
-      <%if user.user_type != 1%>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= link_to user.last_name , vista_path(user) %></td>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%=UserType.find(@user.user_type).userType%></td>
+      <%if user.user_type != 1 && user.user_type != 4%>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= link_to user.last_name , vista_path(user) %></td>
+          <td><%= user.name %></td>
+          <td><%= user.email %></td>
+          <td><%= UserType.find(user.user_type).userType%></td>
+          <%if current_user.user_type == 4 %>
+              <td><%= link_to 'Activar Administrador', editadmin_path(:id => user.id), class: 'btn btn-danger btn-sm' %></td>
+          <% end %>
       <%end%>  
-      <%end%>
+    <%end%>
 
   </tbody>
