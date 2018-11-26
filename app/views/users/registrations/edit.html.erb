@@ -3,63 +3,68 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="form-group" >
+ <div class="form-group" >
             <%= f.label :name, 'Nombre', margin: 3 %>
             <%= f.text_field :name, class: 'form-control', placeholder: 'Ingrese el nombre de usuario',
                 required: true %>
         </div>
 
       <div class="field">
-        <%= f.label :last_name, 'Apellido' %><br />
-        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        <%= f.label :last_name, 'Apellido' %>
+        <%= f.text_field :last_name, class: 'form-control', autofocus: true, autocomplete: "last_name",placeholder: 'Ingrese apellido',
+                required: true %>
       </div>
+      <p></p>
+
 
       <div class="field">
-        <%= f.label :genre, 'Genero' %><br />
-        <%= f.text_field :genre, autofocus: true, autocomplete: "genre" %>
+        <%= f.label :genre, 'Genero' %>
+         <%= f.select :genre, options_for_select(['Masculino','Femenino']), {include_blank: 'Seleccionar...'}, {class: 'form-control', required: true}%>
       </div>
-      
+      <p></p>
+
       <div class="field">
         <%= f.label :age, 'Edad'%><br />
-        <%= f.text_field :age, autofocus: true, autocomplete: "date" %>
+        <%= f.text_field :age, class: 'form-control', autofocus: true, autocomplete: "date",placeholder: 'Ingrese edad',
+                required: true %>
       </div>
+      <p></p>
 
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email",placeholder: 'Ingrese correo electronico',
+                required: true %>
+      </div>
+      <p></p>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <div class="field">
+        <%= f.label :card_number, 'Numero de tarjeta' %><br />
+        <%= f.text_field :card_number, class: 'form-control', autofocus: true,placeholder: 'Ingrese número de la tarjeta',
+                required: true %>
+      </div>
+      <p></p>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+      <div class="field">
+        <%= f.label :card_SC ,'Codigo de seguridad de la tarjeta' %><br />
+        <%= f.text_field :card_SC, class: 'form-control', autofocus: true,placeholder: 'Ingrese codigo de seguridad de la tarjeta',
+                required: true %>
+      </div>
+      <p></p>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+      <div class="field">
+        <%= f.label :card_expDate,'Fecha de expiracion' %><br />
+        <%= f.date_field :card_expDate, {class: "form-control", required: true}%>
+        
+      </div>
+      <p></p>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Guardar cambios", class: 'btn btn-success' %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class: 'btn btn-danger'%></p>
 
-<%= link_to "Back", :back %>
+<p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete, class: 'btn btn-danger'%></p>
+
+<%= link_to "Volver", :back %>
