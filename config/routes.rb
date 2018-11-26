@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :vistas, :only => [:index]
   resources :vistas, :only => [:edit]
 
+  get '/vistas/veradmin', to: 'vistas#veradmin'
+
   resources :petitions
 
   Rails.application.routes.draw do
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
 
 
 	#user: 'users/show'
-
+  
   root "residences#home"
 end
 

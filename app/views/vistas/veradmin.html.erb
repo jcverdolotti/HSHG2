@@ -1,0 +1,30 @@
+<h2 style="margin-left: 10px;"> Listado de usuarios Administradores </h2>
+
+<br>
+<div class:'container' style="margin-left: 10px;">
+<table class="table table-striped">
+  
+  <thead>
+    <tr>
+      <th width="5%" >#</th>
+      <th width="15%">Apellido</th>
+      <th width="15%">Nombre</th>
+      <th width="15%">Email</th>
+      <th width="15%">Membresía</th>
+      <th colspan="2"></th>
+    </tr>
+
+
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= link_to user.last_name , vista_path(user) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%=UserType.find(@user.user_type).userType%></td>
+      <%end%>  
+
+  </tbody>
