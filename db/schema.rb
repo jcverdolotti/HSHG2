@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20181126142852) do
 
   create_table "petitions", force: :cascade do |t|
     t.string "email"
-    t.string "current_uType"
+    t.integer "current_uType"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
