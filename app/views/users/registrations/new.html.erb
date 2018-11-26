@@ -41,13 +41,13 @@
 
       <div class="field">
         <%= f.label :card_expDate,'Fecha de expiracion' %><br />
-        <%= f.text_field :card_expDate ,autofocus: true %>
+        <input type="date" form="card_expDate" id="card_expDate" name="card_expDate" autofocus="true" required="true">
       </div>
 
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
