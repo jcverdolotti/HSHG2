@@ -29,7 +29,6 @@
                         <div class="dropdown-menu dropdown-menu-right">
                           <%= link_to "Ver perfil", vista_path(current_user), class: "dropdown-item"%>
                           <%=link_to "Editar Perfil", edit_user_registration_path, class:"dropdown-item"%>
-                          <%=link_to "Cambiar contraseña", edit_user_password_path, class:"dropdown-item"%>
                           
                           <%= link_to "Salir", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
                         </div>

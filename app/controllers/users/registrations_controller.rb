@@ -22,16 +22,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
      end
  end
 
-
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+   def edit
+     super
+     @user = User.find(params[:id])
+   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+   def update
+     super
+     @user = User.find(params[:id])
+     if @user.update(params.require(:user).permit(:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate))
+      redirect_to vistas_path(current_user), notice: "El usuario #{@user.name} se creó con éxito."
+     else
+        render :edit
+     end
+   end
 
   # DELETE /resource
   # def destroy
