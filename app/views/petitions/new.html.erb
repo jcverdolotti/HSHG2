@@ -15,14 +15,12 @@
 	<%= form_for @petition do |p| %>
 
     <div class="form-group" >
-        <%= p.label current_user.email, 'Email', margin: 3 %>
-        <%= p.text_field :email, class: 'form-control', placeholder: 'Complete su email',
-            required: true %>
+        <%= p.hidden_field :email, :value => current_user.email%>
     </div>
 
     <div class="form-group" >
-      <%= p.label :user_type, 'Actualmente usted es'%>
-      <%= p.collection_select :current_uType, UserType.find(2,3), :id, :userType, {include_blank: 'Seleccionar...'}, {class: 'form-control', required: true}%>
+      <%= p.hidden_field :current_uType, :value => current_user.user_type%>
+      
     </div>
 
     <div class="form-group form-check">
@@ -43,14 +41,11 @@
 	<%= form_for @petition do |p| %>
 
     <div class="form-group" >
-        <%= p.label current_user.email, 'Email', margin: 3 %>
-        <%= p.text_field :email, class: 'form-control', placeholder: 'Complete su email',
-            required: true %>
+       <%= p.hidden_field :email, :value => current_user.email%>
     </div>
 
     <div class="form-group" >
-      <%= p.label :user_type, 'Actualmente usted es'%>
-      <%= p.collection_select :current_uType, UserType.find(2,3), :id, :userType, {include_blank: 'Seleccionar...'}, {class: 'form-control', required: true}%>
+      <%= p.hidden_field :current_uType, :value => current_user.user_type%>
     </div>
     
     <%= p.submit 'Crear Peticion', class: 'btn btn-danger', data: {confirm: 'Creará una petición para degradar s membresía. Continuar?'}%>
