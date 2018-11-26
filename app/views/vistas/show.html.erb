@@ -1,25 +1,34 @@
-<%if current_user.user_type ==1 %>
-	<h1> Detalle Usuario #<%=@user.id%>
-</h1>
-<%else%>
-	<h1>Información de la cuenta </h1>
-<% end %>
+<div class="container" align="center">
 
-<div class="card" style="width: 18rem;" >
-	<span class="border border-dark">
-  <img class="card-img-top"src = "https://pbs.twimg.com/profile_images/930996540977631237/cAN7Oe4z_400x400.jpg">
-  <div class="card-body">
-    <h5 class="card-title"><%=@user.name%> <%=@user.last_name%></h5>
-    <h6 class='card-subtitle mb-2 text-muted'> Usuario <%=UserType.find(@user.user_type).userType%> </h6>
+
+
+
+
+<div class="jumbotron">
+  	<%if current_user.user_type ==1 %>
+		<h3 class="display-3" class="font-weight-bold" class="text-uppercase"> Detalle Usuario #<%=@user.id%></h3>
+	<%else%>
+		<h3 class="display-3" class="font-weight-bold" class="text-uppercase">Información de la cuenta </h3>
+	<% end %>
 	
- 
-	<p class="card-text">e-mail: <%=@user.email%></p>
-	<p class="card-text">Genero: <%=@user.genre%> </p>
-	<p class="card-text">Edad: <%=@user.age%> </p>
-	<p class="card-text">Tarjeta nro: XXXX-XXXX-XXXX-<%=@user.card_number.last(4)%></p>
-	
-      </div>
-	</div>
-	<p></p>
-	</span>
+  <h3 "><%=@user.name%> <%=@user.last_name%></h3>
+  <img class="rounded"  src = "https://pbs.twimg.com/profile_images/930996540977631237/cAN7Oe4z_400x400.jpg">
+  <p class="lead">Usuario <%=UserType.find(@user.user_type).userType%> </p>
+  <hr class="my-4">
+
+
+
+<div class="container">
+   <div class="row">
+        <div class="col-sm">e-mail: <%=@user.email%></div>
+        <div class="col-sm">Genero: <%=@user.genre%></div>
+        <div class="col-sm">Edad: <%=@user.age%></div>
+        <div class="col-sm">Tarjeta nro: XXXX-XXXX-XXXX-<%=@user.card_number.last(4)%></div>
+   </div>
+</div>
+
+</div>
+</div>
+
+
 	  <%=link_to 'Volver', vistas_path, class: 'btn btn-secondary'%> 
