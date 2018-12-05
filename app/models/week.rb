@@ -1,7 +1,6 @@
 class Week < ApplicationRecord
-   
-    default_scope -> {order("weekDate")}
-    scope :dosmeses -> {order("weekDate").limit(8)}
+
+    scope :dosmeses,-> {order(weekDate:).limit(8)}
 
     belongs_to :residence
     

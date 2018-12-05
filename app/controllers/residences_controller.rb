@@ -11,6 +11,9 @@ class ResidencesController < ApplicationController
         @residence= Residence.new(residence_params)
        
         if @residence.save
+            (1..52).each do |w|
+                @week = Week.create(residence_id: @residence.id, weekDate: Date.commercial(2019,w,1))
+            end
             redirect_to residences_path, notice: "La residencia #{@residence.name} se creó con éxito."
         else
             render :new
