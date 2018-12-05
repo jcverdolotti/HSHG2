@@ -1,6 +1,6 @@
 
 <div class="col-md-12 text-center">
-<br/>
+
     <h1>Iniciar Sesión</h1>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -11,7 +11,7 @@
 
       <div class="field">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "Contraseña actual" %>
+        <%= f.password_field :password,autofocus: true, autocomplete: "Contraseña actual" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>

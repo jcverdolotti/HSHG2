@@ -12,12 +12,11 @@
   <%= render 'layouts/header' %>
 </head>
 <body>
+<br/><br/>
 
-
-<p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <div class="container", size="100%"> 
-
+<p class="notice"><%= flash_message %></p>
 <%= yield %>
 </div>
 
