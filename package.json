@@ -1,5 +1,7 @@
 {
   "name": "hsh",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "nodejs": "0.0.0"
+  }
 }
