@@ -22,6 +22,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :card_SC
       t.date :card_expDate
       t.integer :user_type, default:"2"
+      t.integer :credits, default: "2"
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
