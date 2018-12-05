@@ -6,5 +6,8 @@ class User < ApplicationRecord
 
  	validates :card_SC, length: { is: 3 }
  	validates :card_number, length: { is: 16}
- 	validates :age, inclusion: { in: 18..99 }
+  validates :age, numericality: { greater_than: 18}
+  validates :credits, inclusion: {in: 0..2}
+
+  has_many :reservations, dependent: :destroy
 end

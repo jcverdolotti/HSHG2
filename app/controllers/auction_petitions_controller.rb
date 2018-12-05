@@ -1,0 +1,2 @@
+class AuctionPetitionsController < ApplicationController
+end

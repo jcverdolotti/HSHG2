@@ -1,0 +1,2 @@
+class AuctionPetition < ApplicationRecord
+end
