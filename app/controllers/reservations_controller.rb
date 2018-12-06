@@ -48,15 +48,15 @@ class ReservationsController < ApplicationController
     def destroy
         @reservation = Reservation.find(params[:id])
             @r = Residence.find(@reservation.residence_id)
-            @w = Week.find(@reservation.week_id)
+            @week = Week.find(@reservation.week_id)
         if @reservation.destroy
-            w.destroy
-            redirect_to reservations_path
+            @week.destroy
+            redirect_to misreservas_path
         end
     end
 
     def misreservas
-        @reservation = Reservation.where(user_id: current_user.id).take
+        @reservation = Reservation.where(user_id: current_user.id)
     end
 
     def reservation_params
