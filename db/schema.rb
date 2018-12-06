@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20181205210242) do
 
   create_table "auction_petitions", force: :cascade do |t|
     t.string "email"
+    t.integer "residence_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 20181205210242) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "residence_id"
+    t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,6 +84,7 @@ ActiveRecord::Schema.define(version: 20181205210242) do
     t.string "card_SC"
     t.date "card_expDate"
     t.integer "user_type", default: 2
+    t.integer "credits", default: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
