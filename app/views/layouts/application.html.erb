@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <title>HSH</title>
-  <link rel="shortcut icon"  type="image/x-icon" href="https://i.ibb.co/qdy56Rn/logo.png" />
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <%= csrf_meta_tags %>
-  <%= render 'layouts/header' %>
-</head>
-<body>
-<br/><br/>
-
-<p class="alert"><%= alert %></p>
-<div class="container", size="100%"> 
-<p class="notice"><%= flash_message %></p>
-<%= yield %>
-</div>
-
-</body>
+  <head>
+    <title>HSH</title>
+    <link rel="shortcut icon"  type="image/x-icon" href="https://i.ibb.co/qdy56Rn/logo.png" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/header' %>
+  </head>
+  <body>
+    <br/><br/>
+    <p class="alert"><%= alert %></p>
+    <div class="container", size="100%"> 
+      <p class="notice"><%= flash_message %></p>
+      <%= yield %>
+    </div>
+    <div class="position-static-bottom bg-light">
+        <hr/>
+          <%= link_to('Acerca de HSH','#',class:"btn btn-link text-muted") %>
+          <%= link_to('Contacto','#',class:"btn btn-link text-muted ") %> 
+          <%= link_to('Ayuda','#',class:"btn btn-link text-muted") %>
+    </div>
+  </body>
 </html>
