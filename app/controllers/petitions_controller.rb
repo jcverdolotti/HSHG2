@@ -20,7 +20,7 @@ class PetitionsController < ApplicationController
 
 	def destroy
 		@petition=Petition.find(params[:id])
-        if @residence.destroy
+        if @petition.destroy
             redirect_to petitions_path
         end
 

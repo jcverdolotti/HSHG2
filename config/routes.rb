@@ -2,14 +2,20 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :residences
+  get '/versemanas', to: 'residences#versemanas'
+
+  resources :reservations
+  get '/nuevareserva', to: 'reservations#nuevareserva'
+  get '/misreservas', to: 'reservations#misreservas'
+
   resources :vistas, :only => [:show]
   resources :vistas, :only => [:index]
   resources :vistas, :only => [:edit]
-
   get '/veradmin', to: 'vistas#veradmin'
   get '/editadmin', to: 'vistas#editadmin'
 
   resources :petitions
+  resources :auctionpetitions
 
   Rails.application.routes.draw do
     devise_for :users, controllers: {

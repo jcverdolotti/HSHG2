@@ -1,0 +1,38 @@
+<h2 style="margin-left: 10px;">Residencias</h2>
+<br>
+<div class:'container' style="margin-left: 10px;">
+<table class="table table-striped">
+  
+  <thead>
+    <tr>
+      <th width="5%" >#</th>
+      <th width="20%">Semana</th>
+      <th width="5%">Reservada</th>
+      <th colspan="2"></th>
+    </tr>
+
+
+  </thead>
+
+  <tbody>
+    <% @residenceWeeks.each do |wr| %>
+      <tr>
+        <td><%= wr.id %></td>
+        <td><%= wr.weekDate.strftime("Desde el %d-%m-%Y")%></td>
+        
+        <%if wr.reserved%>
+          <td>si</td> 
+        <%else%>
+          <td>no</td>
+        <%end%>
+        
+        <%if !wr.reserved%>
+            <%if current_user.user_type == 2%>
+                 <td>Boton Inscripcion Subasta</td> 
+             <%elsif current_user.user_type == 3 && current_user.credits > 0%>
+                <td><%= link_to 'Reservar', nuevareserva_path(:user_id => current_user.id, :residence_id => wr.residence_id, :week_id => wr.id), class:"btn btn-primary btn-lg", data: {confirm: "Confirmará la reserva de la residencia #{Residence.find(wr.residence_id).name}. ¿Desea Continuar?"}%></td>
+            <%end%>
+        <%end%>
+
+         </tr>
+      <%end%> 

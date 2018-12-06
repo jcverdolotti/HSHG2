@@ -53,6 +53,11 @@ class ResidencesController < ApplicationController
         end
     end
 
+    def versemanas
+        @residenceWeeks = Residence.find(params[:id]).weeks.dosmeses
+    end
+
+
 
     def residence_params
         params.require(:residence).permit(:location, :description, :date, :cost, :people_amount, :id, :name, :image, :country, :province)
