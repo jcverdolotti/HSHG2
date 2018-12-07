@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20181207124201) do
 
   create_table "hotsales", force: :cascade do |t|
     t.integer "residence_id"
+    t.decimal "hotsale_price"
     t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -9,9 +9,11 @@ class HotsalesController < ApplicationController
     end
 
     def create
+        
         @hs = Hotsale.new(hotsale_params)
+       @i = Residence.find(@hs.residence_id).id
         if @hs.save
-            redirect_to root_path
+            redirect_to hotsales_path
         else
             render :new
         end
@@ -19,6 +21,10 @@ class HotsalesController < ApplicationController
 
     def destroy
         #implementar bien
+    end
+
+    def hotsale_params
+        params.permit(:residence_id, :week_id, :hotsale_price)
     end
 
 
