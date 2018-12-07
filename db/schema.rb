@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181205210242) do
+ActiveRecord::Schema.define(version: 20181207124201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 20181205210242) do
     t.decimal "price"
     t.date "startDate"
     t.date "endDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hotsales", force: :cascade do |t|
+    t.integer "residence_id"
+    t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -94,7 +101,7 @@ ActiveRecord::Schema.define(version: 20181205210242) do
   create_table "weeks", force: :cascade do |t|
     t.boolean "reserved", default: false
     t.integer "residence_id"
-    t.date "weekDate"
+    t.date "week_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

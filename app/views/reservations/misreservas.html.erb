@@ -18,7 +18,7 @@
       <tr>
         <td><%= r.id %></td>
         <td><%= link_to Residence.find(r.residence_id).name , residence_path(Residence.find(r.residence_id)) %></td>
-        <td><%=Week.find(r.week_id).weekDate.strftime("Desde el %d-%m-%Y")%>
+        <td><%=Week.find(r.week_id).week_date.strftime("Desde el %d-%m-%Y")%>
       
         
          <td><%= link_to 'Cancelar Reserva', r, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas cancelar la reserva?'} %></td>     

@@ -1,0 +1,36 @@
+
+<%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+
+  <h2 style="margin-left: 10px;">Residencias aptas para Hotsale </h2>
+  <br/>
+  <div style="margin-left: 10px;">
+  <table class="table table-striped">
+    
+    <thead>
+      <tr>
+        <th width="20%">Semana</th>
+        <th width="20%">Nombre Residencia</th>
+        <th colspan="2"></th>
+      </tr>
+
+
+    </thead>
+
+    <tbody>
+      <% @residenceWeeks.each do |wr| %>
+        <tr>
+          <td><%= wr.week_date.strftime("Desde el %d-%m-%Y")%></td>
+          
+          <td><%= Residence.find(wr.residence_id).name%> </td>
+          
+          <%if !wr.reserved%>
+              <td><%= link_to 'Crear Hotsale', new_hotsale_path(:residence_id => wr.residence_id, :week_id => wr.id), class:"btn btn-primary btn-lg"%></td>
+          <%end%>
+
+        </tr>
+      <%end%> 
+    </tbody>
+  </table>
+  </div>
+
+ <%end%>

@@ -16,7 +16,7 @@
   <tbody>
     <% @residenceWeeks.each do |wr| %>
       <tr>
-        <td><%= wr.weekDate.strftime("Desde el %d-%m-%Y")%></td>
+        <td><%= wr.week_date.strftime("Desde el %d-%m-%Y")%></td>
         
         <%if wr.reserved%>
           <td>si</td> 

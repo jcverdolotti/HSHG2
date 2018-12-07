@@ -12,7 +12,7 @@ class ResidencesController < ApplicationController
        
         if @residence.save
             (1..52).each do |w|
-                @week = Week.create(residence_id: @residence.id, weekDate: Date.commercial(2019,w,1))
+                @week = Week.create(residence_id: @residence.id, week_date: Date.commercial(2019,w,1))
             end
             redirect_to residences_path, notice: "La residencia #{@residence.name} se creó con éxito."
         else
@@ -55,6 +55,10 @@ class ResidencesController < ApplicationController
 
     def versemanas
         @residenceWeeks = Residence.find(params[:id]).weeks.dosmeses
+    end
+
+    def versemanasvencidas
+        @residenceWeeks = Residence.find(params[:id]).weeks.nodisponible
     end
 
 

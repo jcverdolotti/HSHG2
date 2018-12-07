@@ -4,7 +4,7 @@ class CreateWeeks < ActiveRecord::Migration[5.1]
 
       t.boolean :reserved, default: false
       t.integer :residence_id
-      t.date :weekDate
+      t.date :week_date
       t.timestamps
       
     end

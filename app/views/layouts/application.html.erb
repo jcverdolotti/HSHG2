@@ -14,15 +14,16 @@
   <body>
     <br/><br/>
     <p class="alert"><%= alert %></p>
-    <div class="container", size="100%"> 
+    <div class="container main"> 
       <p class="notice"><%= flash_message %></p>
       <%= yield %>
     </div>
-    <div class="position-static-bottom bg-light">
-        <hr/>
+    <div class="footer_original">
+        <div>
           <%= link_to('Acerca de HSH','#',class:"btn btn-link text-muted") %>
           <%= link_to('Contacto','#',class:"btn btn-link text-muted ") %> 
           <%= link_to('Ayuda','#',class:"btn btn-link text-muted") %>
+        </div>
     </div>
   </body>
 </html>
