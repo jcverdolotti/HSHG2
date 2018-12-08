@@ -1,30 +1,39 @@
+ <%if @reservation.nil?%>
+    <p>No tienes reservas. Busca una residencia para reservar <%=link_to "aqui", residences_path%></p>
+ 
+ <%else%>
+
 <div class:'container' style="margin-left: 10px;">
-<table class="table table-striped">
-  
-  <thead>
-    <tr>
-      <th width="5%" >#</th>
-      <th width="15%">Residencia</th>
-      <th width="20%">Fecha</th>
-      <th width="5%">Cancelación</th>
-      <th colspan="2"></th>
-    </tr>
-
-
-  </thead>
-
-  <tbody>
-    <% @reservation.each do |r| %>
-      <tr>
-        <td><%= r.id %></td>
-        <td><%= link_to Residence.find(r.residence_id).name , residence_path(Residence.find(r.residence_id)) %></td>
-        <td><%=Week.find(r.week_id).week_date.strftime("Desde el %d-%m-%Y")%>
+    <h3>Mis Reservas</h3>
+    <table class="table table-striped">
       
-        
-         <td><%= link_to 'Cancelar Reserva', r, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas cancelar la reserva?'} %></td>     
-      </tr>
-      <%end%>  
+      <thead>
+        <tr>
+          <th width="5%" >#</th>
+          <th width="15%">Residencia</th>
+          <th width="20%">Fecha</th>
+          <th width="5%">Cancelación</th>
+          <th colspan="2"></th>
+        </tr>
 
-  </tbody>
 
-</table>
+      </thead>
+
+      <tbody>
+
+      
+          <% @reservation.each do |r| %>
+            <tr>
+              <td><%= r.id %></td>
+              <td><%= link_to Residence.find(r.residence_id).name , residence_path(Residence.find(r.residence_id)) %></td>
+              <td><%=Week.find(r.week_id).week_date.strftime("Desde el %d-%m-%Y")%> 
+              <td><%= link_to 'Eliminar', r, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas cancelar la reserva?'} %></td> 
+            </tr>
+        <%end%>  
+
+      </tbody>
+
+    </table>
+</div>
+
+<%end%>

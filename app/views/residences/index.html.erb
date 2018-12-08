@@ -7,8 +7,13 @@
     <tr>
       <th width="5%" >#</th>
       <th width="20%">Residencia</th>
-      <th width="5%">Reservada</th>
-      <th width="5%">Eliminada</th>
+      <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+        <th width="5%">Reservada</th>
+        <th width="5%">Eliminada</th>
+      <%elsif signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
+        <th width="20%">Pais</th>
+        <th width="20%">Estado/Provincia</th>
+      <%end%>
       <th colspan="2"></th>
     </tr>
 
@@ -21,24 +26,29 @@
         <td><%= residence.id %></td>
         <td><%= link_to residence.name , residence_path(residence) %></td>
         
-        <%if residence.reserved%>
-          <td>si</td> 
-        <%else%>
-        <td>no</td>
-        <%end%>
-        
-        <%if residence.logic_delete%>
-          <td>si</td> 
-        <%else%>
-          <td>no</td>
-        <%end%>
+        <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+            <%if residence.reserved%>
+              <td>si</td> 
+            <%else%>
+            <td>no</td>
+            <%end%>
+            
+            <%if residence.logic_delete%>
+              <td>si</td> 
+            <%else%>
+              <td>no</td>
+            <%end%>
+        <%elsif signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
+            <td><%= residence.country %></td>
+            <td><%= residence.province %></td>
+            <td><%=link_to 'Ver Disponibilidad', versemanas_path(:id => residence.id), class:'btn btn-info btn-sm'%></td>
+        <%end%> 
 
         <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
            <td><%= link_to 'Ver Semanas Vencidas', versemanasvencidas_residence_path(residence), class: 'btn btn-info btn-sm' %></td>
+           <td><%= link_to 'Editar', edit_residence_path(residence), class: 'btn btn-info btn-sm' %></td>
+           <td><%= link_to 'Eliminar', residence, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas eliminar la residencia?'} %></td>     
         <%end%>
-        
-        <td><%= link_to 'Editar', edit_residence_path(residence), class: 'btn btn-info btn-sm' %></td>
-        <td><%= link_to 'Eliminar', residence, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas eliminar la residencia?'} %></td>     
       </tr>
       <%end%>  
 
@@ -46,6 +56,7 @@
 
 </table>
 
-
-<%=link_to 'Nueva Residencia', new_residence_path, class: 'btn btn-secondary'%> 
+<%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+    <%=link_to 'Nueva Residencia', new_residence_path, class: 'btn btn-secondary'%> 
+<%end%>
 </div>

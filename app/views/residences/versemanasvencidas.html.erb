@@ -24,7 +24,7 @@
           <td><%= Residence.find(wr.residence_id).name%> </td>
           
           <%if !wr.reserved%>
-              <td><%= link_to 'Crear Hotsale', new_hotsale_path(:residence_id => wr.residence_id, :week_id => wr.id), class:"btn btn-primary btn-lg"%></td>
+              <td><%= link_to 'Crear Hotsale', crearhs_path(:residence_id => wr.residence_id, :week_id => wr.id), class:"btn btn-primary btn-lg"%></td>
           <%end%>
 
         </tr>

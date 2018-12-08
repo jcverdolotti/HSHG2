@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get '/editadmin', to: 'vistas#editadmin'
 
   resources :hotsales
+  get '/crearhs', to: 'hotsales#crearhs'
+  
 
   resources :petitions
   resources :auctionpetitions

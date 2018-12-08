@@ -1,0 +1,32 @@
+<%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+
+
+<div class: 'container' style="margin-left: 15px; margin-right: 15px;">
+
+    <p> Defina el precio de hot sale</p>
+
+    <%= form_for @hs do |h| %>
+
+        <div class="form-group" >
+            
+            <div class="form-group" >
+                <%= h.label :hotsale_price, "Precio actual #{Residence.find(@hs.residence_id).cost}" %>
+                 <div class="input-group mb-3">
+                 <div class="input-group-prepend">
+                 <span class="input-group-text">$</span>
+            </div>
+             <%= h.number_field :hotsale_price, class: 'form-control', placeholder: 'Ingrese el costo de la residencia',
+                required: true %>
+            <div class="input-group-append">
+            <span class="input-group-text">.00</span>
+            </div>
+        
+
+        </div>
+            <%= h.submit 'Guardar', class: 'btn btn-primary' %>
+
+    <% end %>
+
+  </div>
+
+<%end%>

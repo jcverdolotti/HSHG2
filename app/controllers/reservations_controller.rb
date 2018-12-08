@@ -50,7 +50,7 @@ class ReservationsController < ApplicationController
             @r = Residence.find(@reservation.residence_id)
             @week = Week.find(@reservation.week_id)
         if @reservation.destroy
-            @week.destroy
+            @week.update_attribute(:reserved, false)
             redirect_to misreservas_path
         end
     end
