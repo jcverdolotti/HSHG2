@@ -1,0 +1,24 @@
+<h2> Registro para subasta </h2>
+
+<ul class="list-unstyled">
+<ul>
+      <li>Un admin creará la subasta</li>
+      <li>Deberás pujar para llevarte la residencia</li>
+      <li>La subasta dura 3 días</li>
+    </ul>
+    </ul>
+<div class: 'container' style="margin-left: 15px; margin-right: 15px;">
+	<%= form_for @apetition do |p| %>
+
+    <div class="form-group" >
+        <%= p.hidden_field :email, :value => current_user.email%>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" required="true">
+        <label class="form-check-label" for="exampleCheck1">Deseo registrarme para subastar</label>
+    </div> 
+    <%= p.submit 'Crear Peticion', class: 'btn btn-primary', data: {confirm: 'Creará una petición para registrarse a subasta. Continuar?'}%>
+   
+    <% end %>
+</div>

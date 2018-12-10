@@ -1,0 +1,40 @@
+ <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+       
+    <h2 style="margin-left: 10px;">Subastas activas</h2>
+    <br>
+    <div class:'container' style="margin-left: 10px;">
+   <div class:'container' style="margin-left: 10px;">
+    <table class="table table-striped">
+    
+    <thead>
+        <tr>
+        <th width="5%" >#</th>
+        <th width="20%">Residencia</th>
+        <th width="20%">Fecha fin</th>      
+        <th colspan="2"></th>
+        </tr>
+
+
+    </thead>
+
+    <tbody>
+        <% @auctions.each do |a| %>
+        <tr>
+            <td><%= a.residence_id %></td>
+            <td><%= link_to Residence.find(a.residence_id).name , residence_path(Residence.find(a.residence_id)) %></td>
+            <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
+            <td><%= link_to "Ver detalle", auction_path(a)%>
+            <%if Time.now.strftime("%d-%m-%Y") >=  a.endDate.strftime("%d-%m-%Y")%>
+                 <td><%= link_to 'Terminar Subasta', terminarsubasta(a)%>
+            <%end%>
+            
+           
+        </tr>
+        <%end%>  
+
+    </tbody>
+
+    </table>
+
+    </div>
+<%end%>

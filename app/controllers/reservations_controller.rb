@@ -45,6 +45,27 @@ class ReservationsController < ApplicationController
          end
      end
 
+     def nuevareservahs
+        @reservation = Reservation.create()
+        @reservation.update(reservation_params)
+ 
+        if @reservation.save 
+            @r = Residence.find(@reservation.residence_id)
+            @w = Week.find(@reservation.week_id)
+            @hs = Hotsale.where(residence_id: @r.id).take
+            @hs.destroy
+
+            @r.update_attribute(:reserved, true)
+            @w.update_attribute(:reserved, true)
+
+            redirect_to misreservas_path, notice: "Su reserva se creó correctamente"
+         else
+            render :new
+         end
+     end
+
+     
+
     def destroy
         @reservation = Reservation.find(params[:id])
             @r = Residence.find(@reservation.residence_id)

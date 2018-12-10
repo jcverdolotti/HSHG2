@@ -1,1 +1,50 @@
-<p>gg</p>
+<h2 style="margin-left: 10px;">Residencias en Hotsale</h2>
+<br>
+<div class:'container' style="margin-left: 10px;">
+<table class="table table-striped">
+  
+  <thead>
+    <tr>
+      <th width="5%" >#</th>
+      <th width="20%">Residencia</th>
+      <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+        <th width="5%">Reservada</th>
+        <th width="5%">Eliminada</th>
+      <%elsif signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
+        <th width="20%">Pais</th>
+        <th width="20%">Estado/Provincia</th>
+        <th width="20%">Semana</th>
+      <%end%>
+      <th colspan="2"></th>
+    </tr>
+
+
+  </thead>
+
+  <tbody>
+    <% @hs.each do |hs| %>
+      <tr>
+        <td><%= hs.id %></td>
+        <td><%= link_to Residence.find(hs.residence_id).name , residence_path(Residence.find(hs.residence_id)) %></td>
+        
+        <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+        
+        <%elsif signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
+            <td><%= Residence.find(hs.residence_id).country %></td>
+            <td><%= Residence.find(hs.residence_id).province %></td>
+            <td><%= Week.find(hs.week_id).week_date %></td>
+            <td><%= link_to 'Reservar', nuevareservahs_path(:user_id => current_user.id, :residence_id => hs.residence_id, :week_id => hs.week_id), class:"btn btn-primary btn-lg", data: {confirm: "Confirmará la reserva de la residencia #{Residence.find(hs.residence_id).name}. ¿Desea Continuar?"}%></td>
+              
+        <%end%> 
+
+        <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+           <td><%= link_to 'Eliminar', hs, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: '¿Realmente deseas eliminar la oferta?'} %></td>     
+        <%end%>
+      </tr>
+      <%end%>  
+
+  </tbody>
+
+</table>
+
+</div>

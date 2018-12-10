@@ -1,0 +1,38 @@
+<%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+       
+    <h2 style="margin-left: 10px;">Subastas Creadas</h2>
+    <br>
+    <div class:'container' style="margin-left: 10px;">
+    <table class="table table-striped">
+    
+    <thead>
+        <tr>
+        <th width="5%" >#</th>
+        <th width="20%">Residencia</th>
+        <th width="20%">Fecha inicio</th>      
+        <th colspan="2"></th>
+        </tr>
+
+
+    </thead>
+
+    <tbody>
+        <% @auctions.each do |a| %>
+        <tr>
+            <td><%= a.residence_id %></td>
+            <td><%= link_to Residence.find(a.residence_id).name , residence_path(Residence.find(a.residence_id)) %></td>
+            <td><%= a.startDate.strftime("%d-%m-%Y")%></td>
+            <%if Time.now.strftime("%d-%m-%Y") >=  a.startDate.strftime("%d-%m-%Y")%>
+                 <td><%= link_to 'Iniciar Subasta', iniciarsubasta_auction_path(a)%>
+            <%end%>
+            
+           
+        </tr>
+        <%end%>  
+
+    </tbody>
+
+    </table>
+
+    </div>
+<%end%>

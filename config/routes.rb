@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :reservations
   get '/nuevareserva', to: 'reservations#nuevareserva'
+  get '/nuevareservahs', to: 'reservations#nuevareservahs'
   get '/misreservas', to: 'reservations#misreservas'
   
 
@@ -25,8 +26,18 @@ Rails.application.routes.draw do
   
 
   resources :petitions
-  resources :auctionpetitions
+  resources :apetitions
+  get '/registrosubasta', to: 'apetitions#registrosubasta'
 
+
+  get '/nuevasubasta', to: 'auctions#nuevasubasta'
+  get '/subastasactivas', to: 'auctions#subastasactivas'
+  get 'terminarsubasta', to: 'auctions#terminarsubasta'
+  resources :auctions do
+    get :iniciarsubasta, on: :member
+  end
+  
+  
   Rails.application.routes.draw do
     devise_for :users, controllers: {
       sessions: 'users/sessions'

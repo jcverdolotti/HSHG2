@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AuctionPetitionTest < ActiveSupport::TestCase
+class ApetitionTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

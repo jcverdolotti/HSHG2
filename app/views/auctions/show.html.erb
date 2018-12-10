@@ -1,0 +1,10 @@
+<p> Subasta para <%=Residence.find(@auction.residence_id).name%>, semana <%=Week.find(@auction.week_id).week_date.strftime("%d-%m-%Y")%></p>
+
+<%if !@auction.user_id.nil?%>
+    <p>Monto acumulado <%=@auction.price%>
+
+    <p>Ganador actual <%=User.find(@auction.user_id).name%>
+
+<%else%>
+    <p>Aun no se ha pujado por esta subasta</p>
+<%end%>

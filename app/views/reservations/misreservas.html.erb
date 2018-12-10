@@ -1,4 +1,4 @@
- <%if @reservation.nil?%>
+ <%if @reservation.empty?%>
     <p>No tienes reservas. Busca una residencia para reservar <%=link_to "aqui", residences_path%></p>
  
  <%else%>

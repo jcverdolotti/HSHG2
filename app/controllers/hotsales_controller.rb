@@ -24,7 +24,7 @@ class HotsalesController < ApplicationController
         @hs = Hotsale.find(params[:id])
        
         if @hs.update(hotsale_params)
-            redirect_to hotsales_path,  notice: "Genial, se guardó"
+            redirect_to hotsales_path,  notice: "Oferta creada"
         end
     end
 
@@ -38,7 +38,10 @@ class HotsalesController < ApplicationController
     end
 
     def destroy
-        #implementar bien
+        @hs = Hotsale.find(params[:id])
+        if @hs.destroy
+            redirect_to hotsales_path, notice: "Oferta eliminada"
+        end
     end
 
     def hotsale_paramss

@@ -1,0 +1,34 @@
+ <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
+       
+    <h2 style="margin-left: 10px;">Residencias en Hotsale</h2>
+    <br>
+    <div class:'container' style="margin-left: 10px;">
+    <table class="table table-striped">
+    
+    <thead>
+        <tr>
+        <th width="5%" >#</th>
+        <th width="20%">Residencia</th>
+        <th width="20%">Usuario</th>      
+        <th colspan="2"></th>
+        </tr>
+
+
+    </thead>
+
+    <tbody>
+        <% @apetitions.each do |ap| %>
+         <tr>
+            <td><%= ap.residence_id %></td>
+            <td><%= link_to Residence.find(ap.residence_id).name , residence_path(Residence.find(ap.residence_id)) %></td>
+            <td><%= link_to ap.email, vista_path(User.where(email: ap.email).take.id) %></td>
+            <td><%= link_to 'Crear Subasta', nuevasubasta_path(:residence_id => ap.residence_id,:startPrice => Residence.find(ap.residence_id).cost, :week_id => ap.week_id), class:"btn btn-primary btn-lg"%></td> 
+         </tr>
+        <%end%>  
+
+    </tbody>
+
+    </table>
+
+    </div>
+<%end%>
