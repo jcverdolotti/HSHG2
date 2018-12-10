@@ -1,11 +1,12 @@
 <%if signed_in?%>
   <div class="container" >
-  <img class="rounded" style="width: 67.5rem;" src=<%= @residence.image %>>
+  
       
       
     <div class="jumbotron">
     <div align= "center">
     <h1 class="display-3" class="font-weight-bold" class="text-uppercase"><%= @residence.name %></h1>
+    <img class="rounded"  style="width: 60rem;" src=<%= @residence.image %>>
     <p class="lead"><%= @residence.description %></p>
     <hr class="my-4">
     <p></p>

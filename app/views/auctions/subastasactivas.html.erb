@@ -1,7 +1,7 @@
  <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
        
     <h2 style="margin-left: 10px;">Subastas activas</h2>
-    <br>
+    <br/>
     <div class:'container' style="margin-left: 10px;">
    <div class:'container' style="margin-left: 10px;">
     <table class="table table-striped">
@@ -23,9 +23,9 @@
             <td><%= a.residence_id %></td>
             <td><%= link_to Residence.find(a.residence_id).name , residence_path(Residence.find(a.residence_id)) %></td>
             <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
-            <td><%= link_to "Ver detalle", auction_path(a)%>
+            <td><%= link_to "Ver detalle", auction_path(a)%></td>
             <%if Time.now.strftime("%d-%m-%Y") >=  a.endDate.strftime("%d-%m-%Y")%>
-                 <td><%= link_to 'Terminar Subasta', terminarsubasta(a)%>
+                 <td><%= link_to 'Terminar Subasta', terminarsubasta(a)%></td>
             <%end%>
             
            
@@ -36,5 +36,6 @@
 
     </table>
 
+    </div>
     </div>
 <%end%>

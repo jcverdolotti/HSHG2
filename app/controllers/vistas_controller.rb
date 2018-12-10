@@ -42,5 +42,16 @@ class VistasController < ApplicationController
         end
     end
 
+    def ayuda
+
+    end
+
+    def contacto
+    
+    end
+
+    def acercade
+
+    end
 
     end

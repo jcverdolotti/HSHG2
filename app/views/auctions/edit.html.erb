@@ -19,18 +19,19 @@
         </div>
 
         <div class="field">
-        <%= a.label :startDate,'Fecha de expiracion' %><br />
+        <%= a.label :startDate,'Fecha de inicio' %><br />
         <%= a.date_field :startDate, {class: "form-control", required: true}%>   
        </div>
 
-
+       <p></p>
         <div class="field">
         <%= a.label :endDate,'Fecha de expiracion' %><br />
         <%= a.date_field :endDate, {class: "form-control", required: true}%>   
        </div>
-
+       <p></p>
        
 
         <%= a.submit 'Crear Subasta', class: 'btn btn-primary' %>
     <% end %>
+    
     </div>

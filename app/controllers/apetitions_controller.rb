@@ -51,11 +51,11 @@ class ApetitionsController < ApplicationController
 	end
 
 	def apetition_params
-        params.permit(:email, :residence_id)
+        params.permit(:email, :residence_id, :week_id)
 	end
 	
 	def ap_params 
-		params.require(:apetition).permit(:email, :residence_id)
+		params.require(:apetition).permit(:email, :residence_id, :week_id)
 	end
 
 

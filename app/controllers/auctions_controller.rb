@@ -84,7 +84,7 @@ class AuctionsController < ApplicationController
     end
 
     def auction_paramss
-        params.permit(:residence_id, :startPrice)
+        params.permit(:residence_id, :startPrice, :week_id)
     end
     
 end
