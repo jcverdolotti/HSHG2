@@ -3,8 +3,8 @@
           <!-- Image and text --> 
       <nav class="navbar navbar-light bg-dark navbar-collapse fixed-top" >
               
-                <%= image_tag("logo.svg",size: "60x60", class:"d-inline-block align-top")%>
-                <a class="navbar-brand mr-auto" href="/">Home Switch Home </a>
+          <%= image_tag("logo.svg",size: "60x60", class:"d-inline-block align-top")%>
+          <a class="navbar-brand mr-auto" href="/">Home Switch Home </a>
               
               <% if signed_in? %>
                 <% if current_user.user_type == 1 || current_user.user_type == 4%>
@@ -30,24 +30,22 @@
                     </ul>
                   </div>
                 
-                    <% end %>
-                    <% end %>
-                    
-                  <div >
-                    <% if signed_in? %>
-                      <% if current_user.user_type == 2 || current_user.user_type == 3%>
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                          <ul class="navbar-nav">     
-                            <li class="nav-item"><%= link_to("Ver todas las residencias", residences_path, class:"nav-link")%>
-                            <span class="sr-only">(current)</span>      
-                            </li>
-                            <li class="nav-item"><%= link_to("Ver hotsales", hotsales_path, class:"nav-link")%>
-                            </li>
-                          </ul>
-                        </div>
-                      <%end%>
-                    <%end%>
-                  </div>
+                <% else %>
+                  <% if current_user.user_type == 2 || current_user.user_type == 3%>
+                       <div class="collapse navbar-collapse" id="navbarNav">
+                         <ul class="navbar-nav">     
+                           <li class="nav-item">
+                           <%= link_to("Ver todas las residencias", residences_path, class:"nav-link")%>
+                           <span class="sr-only">(current)</span>      
+                           </li>
+                           <li class="nav-item"><%= link_to("Ver hotsales", hotsales_path, class:"nav-link")%>
+                           </li>
+                         </ul>
+                       </div>
+                  <%end%>
+                <% end %>
+              <%end%>
+
 
                       <div>
                       <% if signed_in? %>
