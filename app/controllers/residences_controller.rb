@@ -43,8 +43,8 @@ class ResidencesController < ApplicationController
     end
 
     def home
-        
-        @hs = Hotsale.all
+        @hs=Hotsale.all 
+       
     end
 
     def update
