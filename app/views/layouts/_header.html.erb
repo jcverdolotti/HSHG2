@@ -13,19 +13,23 @@
                       <li class="nav-item">
                         <%= link_to("Inscripciones a subastas", apetitions_path, class:"nav-link") %>
                       </li>
-                     </ul>
-                  </div>
-                  <div class="dropdown">
-                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Listados</button>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <%= link_to "Listado de residencias", residences_path, class:"dropdown-item"%>
-                          <%= link_to "Listado de usuarios", vistas_path, class:"dropdown-item"%>
-                          <%= link_to "Listado de Administradores", veradmin_path, class:"dropdown-item"%>
-                          <%= link_to "Listado de peticiones", petitions_path, class:"dropdown-item"%>
-
-                        </div>
+                    </ul>
+                    <ul class="navbar-nav">
+                      <div class="dropdown" aria-labelledby="navbarDropdown">
+                        <li>
+                          <button class="btn nav-link btn-outline-dark  dropdown-toggle" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Listados</button>
+                          <div class="dropdown-menu dropdown-menu-right">
+                            <%= link_to "Listado de residencias", residences_path, class:"dropdown-item"%>
+                            <%= link_to "Listado de usuarios", vistas_path, class:"dropdown-item"%>
+                            <%= link_to "Listado de Administradores", veradmin_path, class:"dropdown-item"%>
+                            <%= link_to "Listado de peticiones", petitions_path, class:"dropdown-item"%>
+                          </div>
+                        </li>
                       </div>
+                    </ul>
+                  </div>
+                
                     <% end %>
                     <% end %>
                     
