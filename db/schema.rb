@@ -23,17 +23,24 @@ ActiveRecord::Schema.define(version: 20181209201538) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "auction_petitions", force: :cascade do |t|
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "auctions", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "residence_id"
     t.decimal "minBid"
     t.decimal "startPrice"
     t.decimal "price"
     t.date "startDate"
+<<<<<<< HEAD
+=======
     t.integer "week_id"
     t.decimal "bid"
+>>>>>>> 366d0640e9fa3393f2a8fb511422a49309e932cf
     t.date "endDate"
-    t.boolean "started", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,8 +62,6 @@ ActiveRecord::Schema.define(version: 20181209201538) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "residence_id"
-    t.integer "week_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -97,7 +102,6 @@ ActiveRecord::Schema.define(version: 20181209201538) do
     t.string "card_SC"
     t.date "card_expDate"
     t.integer "user_type", default: 2
-    t.integer "credits", default: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -107,7 +111,7 @@ ActiveRecord::Schema.define(version: 20181209201538) do
   create_table "weeks", force: :cascade do |t|
     t.boolean "reserved", default: false
     t.integer "residence_id"
-    t.date "week_date"
+    t.date "weekDate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
