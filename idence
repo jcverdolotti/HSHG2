@@ -1,0 +1,61 @@
+******************* 1. row *******************
+           id: 1
+         name: Barilochense
+      country: Argentina
+     location: cerro catedral 123
+     province: Neuquen
+  description: bypass
+         date: 
+         cost: 1512.0
+people_amount: 3
+ logic_delete: 
+     reserved: true
+        image: http://aff.bstatic.com/images/hotel/max500/388/38823640.jpg
+   created_at: 2018-12-11 03:34:34 UTC
+   updated_at: 2018-12-11 03:34:34 UTC
+******************* 2. row *******************
+           id: 2
+         name: La Anonima
+      country: Argentina
+     location: pio 12 1526
+     province: La Pampa, America del sur, La tierra, Via lactea
+  description: tiene el ombu
+         date: 
+         cost: 1512.0
+people_amount: 3
+ logic_delete: 
+     reserved: 
+        image: https://www.codigopoker.com/wp-content/uploads/2012/10/Casino-Club-Santa-Rosa-Interior.jpg
+   created_at: 2018-12-11 03:34:34 UTC
+   updated_at: 2018-12-11 03:34:34 UTC
+******************* 3. row *******************
+           id: 3
+         name: Bosquecito
+      country: Argentina
+     location: 60 y 118
+     province: BSAS
+  description: ntc gato
+         date: 
+         cost: 1512.0
+people_amount: 3
+ logic_delete: 
+     reserved: true
+        image: https://i.pinimg.com/originals/17/68/1c/17681c6b45ac340bd2d9cb4fac363254.jpg
+   created_at: 2018-12-11 03:34:34 UTC
+   updated_at: 2018-12-11 03:34:34 UTC
+******************* 4. row *******************
+           id: 4
+         name: Gonné
+      country: Argentina
+     location: 480 1520
+     province: Neuquen
+  description: tincho 
+         date: 
+         cost: 1512.0
+people_amount: 3
+ logic_delete: 
+     reserved: 
+        image: https://upload.wikimedia.org/wikipedia/commons/f/fc/Estaci%C3%B3n_Peter_Pan_de_la_Rep%C3%BAblica_de_los_Ni%C3%B1os.jpg
+   created_at: 2018-12-11 03:34:34 UTC
+   updated_at: 2018-12-11 03:34:34 UTC
+4 rows in set

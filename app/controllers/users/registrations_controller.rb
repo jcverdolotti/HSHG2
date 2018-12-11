@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
  #POST /resource
   def create
     super
-    @user = User.new(params.require(:user).permit(:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate))
+    @user = User.new(params.require(:user).permit(:name, :last_name, :genre, :age, :card_number, :card_SC, :card_expDate, :credits))
     
      if @user.save
       redirect_to user_index_path, notice: "El usuario #{@user.name} se creó con éxito."
