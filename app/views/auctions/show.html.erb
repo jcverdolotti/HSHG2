@@ -1,4 +1,5 @@
  <%if signed_in?%>
+    <div>
     <p> Subasta para <%=Residence.find(@auction.residence_id).name%>, semana <%=Week.find(@auction.week_id).week_date.strftime("%d-%m-%Y")%></p>
 
     <%if !@auction.user_id.nil?%>
@@ -9,6 +10,8 @@
     <%else%>
         <p>Aun no se ha pujado por esta subasta</p>
     <%end%>
-
-    <%= link_to "Pujar", pujar_auction_path(@auction), class:"btn btn-success btn-lg"%>
-<%end%>
+    </div>
+    <div>
+    <%= link_to "Quiero Ofertar", edit_auction_path(@auction)%>
+    </div>
+    <%end%>

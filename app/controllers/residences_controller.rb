@@ -1,14 +1,23 @@
 class ResidencesController < ApplicationController
     def index
         if params[:country]
-            if @residences = Residence.where('name ILIKE ?', "%#{params[:name]}%").count > 0
-                @residences = Residence.where('name ILIKE ?', "%#{params[:name]}%")
+            if @residences = Residence.where('country ILIKE ?', "%#{params[:country]}%").count > 0
+                @residences = Residence.where('country ILIKE ?', "%#{params[:country]}%")
             else
-                @residences = Residence.all
-                @aviso = "No se encontraron resultados"
+                if @residences = Residence.where('name ILIKE ?', "%#{params[:country]}%").count > 0
+                    @residences = Residence.where('name ILIKE ?', "%#{params[:country]}%")
+                else
+                    if @residences = Residence.where('description ILIKE ?', "%#{params[:country]}%").count > 0
+                        @residences = Residence.where('description ILIKE ?', "%#{params[:country]}%")
+                    else
+                        @residences = Residence.all
+                        @aviso = "No se encontraron resultados"
+                    end
+                end
             end
         else
-             @residences = Residence.all
+             @residences = Residence.all 
+
         end
     end
 
@@ -34,7 +43,8 @@ class ResidencesController < ApplicationController
     end
 
     def home
-        #@residence = Residence.find(1)
+        
+        @hs = Hotsale.all
     end
 
     def update

@@ -10,16 +10,18 @@ class AuctionsController < ApplicationController
 
     def pujar
         @auction = Auction.find(params[:id])
-        if (params[:bid])
-            if (@auction.minBid < params.try(:bid))
-                if @auction.update(price: @auction.price + params[:bid], user_id: current_user.id)
-                
-                    redirect_to missubastas_path
+        if params[:auction][:bid]
+            if (@auction.minBid < params[:auction][:bid].to_i)
+                if @auction.update(price: @auction.price+params[:auction][:bid].to_i, user_id: current_user.id)
+                    redirect_to auction_path(@auction)
                 end
             else
                 redirect_to missubastas_path, notice: "Puja insuficiente"
             end
+        else
+            redirect_to missubastas_path, notice: "Falló la petición"
         end
+      
     end
 
     def new
@@ -40,8 +42,23 @@ class AuctionsController < ApplicationController
 
     def update 
         @auction = Auction.find(params[:id])
-        if @auction.update(a_params)
-            redirect_to auctions_path, notice: "Subasta creada"
+        if current_user.user_type == 4 || current_user.user_type == 1
+            
+            if @auction.update(a_params)
+                redirect_to auctions_path, notice: "Subasta creada"
+            end
+        else
+            if params[:auction][:bid]
+                if (@auction.minBid < params[:auction][:bid].to_i)
+                    if @auction.update(price: @auction.price + params[:auction][:bid].to_i, user_id: current_user.id)
+                        redirect_to auction_path(@auction)
+                    end
+                else
+                    redirect_to missubastas_path, notice: "Puja insuficiente"
+                end
+            else
+                redirect_to missubastas_path, notice: "Falló la petición"
+            end
         end
     end
 
@@ -57,9 +74,9 @@ class AuctionsController < ApplicationController
 
     end
 
-    def terminarsubasta
+    def terminarsub
         
-        @auction = Auction.find(parms[:id])
+        @auction = Auction.find(params[:id])
         Reservation.create(user_id: @auction.user_id, residence_id: @auction.residence_id, week_id: @auction.week_id)
 
         @u = User.find(@auction.user_id)
@@ -75,7 +92,7 @@ class AuctionsController < ApplicationController
         end
 
         if @auction.destroy
-            redirect_to root_path
+            redirect_to subastasactivas_path
         end
 
     end
@@ -107,7 +124,7 @@ class AuctionsController < ApplicationController
     end
 
     def auction_paramss
-        params.permit(:residence_id, :startPrice, :week_id)
+        params.permit(:residence_id, :startPrice, :week_id, :price)
     end
     
 end

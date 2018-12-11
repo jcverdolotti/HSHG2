@@ -9,7 +9,8 @@
         <tr>
         <th width="5%" >#</th>
         <th width="20%">Residencia</th>
-        <th width="20%">Usuario</th>      
+        <th width="20%">Usuario</th> 
+        <th width="20%">Semana</th>     
         <th colspan="2"></th>
         </tr>
 
@@ -22,7 +23,8 @@
             <td><%= ap.residence_id %></td>
             <td><%= link_to Residence.find(ap.residence_id).name , residence_path(Residence.find(ap.residence_id)) %></td>
             <td><%= link_to ap.email, vista_path(User.where(email: ap.email).take.id) %></td>
-            <td><%= link_to 'Crear Subasta', nuevasubasta_path(:residence_id => ap.residence_id,:startPrice => Residence.find(ap.residence_id).cost, :week_id => ap.week_id), class:"btn btn-primary btn-lg"%></td> 
+            <td><%= Week.find(ap.week_id).week_date.strftime("%d-%m-%Y")%>
+            <td><%= link_to 'Crear Subasta', nuevasubasta_path(:residence_id => ap.residence_id,:startPrice => Residence.find(ap.residence_id).cost, :week_id => ap.week_id, :price => Residence.find(ap.residence_id).cost), class:"btn btn-primary btn-lg"%></td> 
          </tr>
         <%end%>  
 
