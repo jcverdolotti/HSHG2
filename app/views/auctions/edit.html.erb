@@ -1,37 +1,55 @@
  
- 
+ <%if signed_in?%>
     <div class: 'container' style="margin-left: 15px; margin-right: 15px;">
     <%= form_for @auction do |a| %>
 
+        <%if current_user.user_type == 4 || current_user.user_type == 1%>
+            <div class="form-group" >
+            <%= a.label :minBid, 'Apuesta mínima' %>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+                </div>
+                <%= a.number_field :minBid, class: 'form-control', placeholder: 'Ingrese la oferta minima',
+                    required: true %>
+                <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+                </div>
+            </div>
+            </div>
 
+            <div class="field">
+            <%= a.label :startDate,'Fecha de inicio' %><br />
+            <%= a.date_field :startDate, {class: "form-control", required: true}%>   
+        </div>
+
+        <p></p>
+            <div class="field">
+            <%= a.label :endDate,'Fecha de expiracion' %><br />
+            <%= a.date_field :endDate, {class: "form-control", required: true}%>   
+        </div>
+        <p></p>
+        
+
+            <%= a.submit 'Crear Subasta', class: 'btn btn-primary' %>
+        <%else%>
         <div class="form-group" >
-        <%= a.label :minBid, 'Apuesta mínima' %>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-            <span class="input-group-text">$</span>
+            <%= a.label :bid, "Apuesta:" %>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+                </div>
+                <%= a.number_field :bid, class: 'form-control', placeholder: 'Ingrese la oferta minima',
+                    required: true %>
+                <div class="input-group-append">
+                <span class="input-group-text">.00</span>
+                </div>
             </div>
-            <%= a.number_field :minBid, class: 'form-control', placeholder: 'Ingrese la oferta minima',
-                required: true %>
-            <div class="input-group-append">
-            <span class="input-group-text">.00</span>
             </div>
-        </div>
-        </div>
 
-        <div class="field">
-        <%= a.label :startDate,'Fecha de inicio' %><br />
-        <%= a.date_field :startDate, {class: "form-control", required: true}%>   
-       </div>
-
-       <p></p>
-        <div class="field">
-        <%= a.label :endDate,'Fecha de expiracion' %><br />
-        <%= a.date_field :endDate, {class: "form-control", required: true}%>   
-       </div>
-       <p></p>
-       
-
-        <%= a.submit 'Crear Subasta', class: 'btn btn-primary' %>
+            <%= a.submit 'Pujar', class: 'btn btn-primary' %>
+        <%end%>
     <% end %>
     
     </div>
+<%end%>

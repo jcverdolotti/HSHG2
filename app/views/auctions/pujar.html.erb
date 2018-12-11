@@ -11,7 +11,7 @@
     <%end%>
 
     <div class: 'container' style="margin-left: 15px; margin-right: 15px;">
-        <%= form_for @auction do |a| %>
+        <%= form_for @auction, url: {action: "update"} do |a| %>
 
         <div class="form-group" >
             <%= a.label :bid, "Apuesta (mínimo: $#{@auction.minBid})"  %>

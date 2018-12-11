@@ -32,9 +32,9 @@ Rails.application.routes.draw do
 
   get '/nuevasubasta', to: 'auctions#nuevasubasta'
   get '/subastasactivas', to: 'auctions#subastasactivas'
-  get 'terminarsubasta', to: 'auctions#terminarsubasta'
-  get 'missubastas', to: 'auctions#missubastas'
+   get '/missubastas', to: 'auctions#missubastas'
   resources :auctions do
+    get :terminarsub, on: :member
     get :iniciarsubasta, on: :member
     get :pujar, on: :member
 

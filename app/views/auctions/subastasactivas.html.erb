@@ -25,7 +25,7 @@
             <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
             <td><%= link_to "Ver detalle", auction_path(a), class:"btn btn-primary btn-lg"%></td>
             <%if Time.now.strftime("%d-%m-%Y") >=  a.endDate.strftime("%d-%m-%Y")%>
-                 <td><%= link_to 'Terminar Subasta', terminarsubasta(a), class:"btn btn-danger btn-lg"%></td>
+                 <td><%= link_to 'Terminar Subasta', terminarsub_auction_path(a), class:"btn btn-danger btn-lg"%></td>
             <%end%>
             
            
