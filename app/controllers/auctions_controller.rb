@@ -8,6 +8,20 @@ class AuctionsController < ApplicationController
         @auction = Auction.find(params[:id])
     end
 
+    def pujar
+        @auction = Auction.find(params[:id])
+        if (params[:bid])
+            if (@auction.minBid < params.try(:bid))
+                if @auction.update(price: @auction.price + params[:bid], user_id: current_user.id)
+                
+                    redirect_to missubastas_path
+                end
+            else
+                redirect_to missubastas_path, notice: "Puja insuficiente"
+            end
+        end
+    end
+
     def new
         @auction = Auction.new
     end
@@ -36,9 +50,7 @@ class AuctionsController < ApplicationController
         @auction = Auction.find(params[:id])
         @auction.attributes = {started: true}
         if @auction.save
-            Apetition.where(residence_id: @auction.residence_id, week_id: @auction.week_id).each do |a|
-                a.destroy
-            end
+            
             redirect_to subastasactivas_path
         end
         
@@ -58,10 +70,21 @@ class AuctionsController < ApplicationController
         @r.update_attribute(:reserved, true)
         @w.update_attribute(:reserved, true)
         
+        Apetition.where(residence_id: @auction.residence_id, week_id: @auction.week_id).each do |a|
+            a.destroy
+        end
+
         if @auction.destroy
             redirect_to root_path
         end
 
+    end
+
+
+
+    def missubastas
+        ap = Apetition.where(email: current_user.email).take
+        @auctions = Auction.where(residence_id: ap.residence_id, week_id: ap.week_id)
     end
 
 
