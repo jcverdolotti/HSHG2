@@ -1,6 +1,15 @@
 class ResidencesController < ApplicationController
     def index
-        @residences = Residence.all
+        if params[:country]
+            if @residences = Residence.where('name ILIKE ?', "%#{params[:name]}%").count > 0
+                @residences = Residence.where('name ILIKE ?', "%#{params[:name]}%")
+            else
+                @residences = Residence.all
+                @aviso = "No se encontraron resultados"
+            end
+        else
+             @residences = Residence.all
+        end
     end
 
     def new
