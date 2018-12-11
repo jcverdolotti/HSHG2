@@ -10,18 +10,21 @@
        
        
         <div class="carousel-inner">
+          
             <div class="carousel-item active">
-              <img class="d-block w-100" src="<%= Residence.find(@hs.find(1).residence_id).image %>"  alt="First slide">
+              <img class="d-block w-100" src="<%= Residence.find(@hs.find(2).residence_id).image %>"  alt="First slide">
               <div class="carousel-caption d-none d-md-block">
-                <h1><%= Residence.find(@hs.find(1).residence_id).name %></h1>
-                <p><%= Residence.find(@hs.find(1).residence_id).description%></p>
+                <h1><%= Residence.find(@hs.find(2).residence_id).name %></h1>
+                <p><%= Residence.find(@hs.find(2).residence_id).description%></p>
+                <p><%= Week.find(@hs.find(2).week_id).week_date %></p>
               </div>
             </div>
             <div class="carousel-item">
               <img class="d-block w-100" src="<%= Residence.find(@hs.find(2).residence_id).image %>"  alt="Second slide">
               <div class="carousel-caption d-none d-md-block">
-                <h1><%= Residence.find(@hs.find(1).residence_id).name %></h1>
-                <p><%= Residence.find(@hs.find(1).residence_id).description%></p>
+                <h1><%= Residence.find(@hs.find(2).residence_id).name %></h1>
+                <p><%= Residence.find(@hs.find(2).residence_id).description%></p>
+                <p><%= Week.find(@hs.find(2).week_id).week_date %></p>
               </div>
             </div>
             <div class="carousel-item">
@@ -29,6 +32,7 @@
               <div class="carousel-caption d-none d-md-block">
                 <h1><%= Residence.find(@hs.find(3).residence_id).name %></h1>
                 <p><%= Residence.find(@hs.find(3).residence_id).description%></p>
+                <p><%= Week.find(@hs.find(3).week_id).week_date %></p>
               </div>
             </div>
         </div>
