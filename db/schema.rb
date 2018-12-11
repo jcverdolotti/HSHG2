@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20181209201538) do
     t.decimal "price"
     t.date "startDate"
     t.integer "week_id"
+    t.decimal "bid"
     t.date "endDate"
     t.boolean "started", default: false
     t.datetime "created_at", null: false

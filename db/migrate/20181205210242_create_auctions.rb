@@ -8,6 +8,7 @@ class CreateAuctions < ActiveRecord::Migration[5.1]
       t.decimal :price
       t.date :startDate
       t.integer :week_id
+      t.decimal :bid
       t.date :endDate
       t.boolean :started, default: false
       
