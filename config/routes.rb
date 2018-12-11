@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :vistas, :only => [:edit]
   get '/veradmin', to: 'vistas#veradmin'
   get '/editadmin', to: 'vistas#editadmin'
+  get '/contacto', to: 'vistas#contacto'
+  get '/ayuda', to: 'vistas#ayuda'
+  get '/acercade', to: 'vistas#acercade'
 
   resources :hotsales
   get '/crearhs', to: 'hotsales#crearhs'
