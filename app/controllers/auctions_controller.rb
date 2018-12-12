@@ -100,8 +100,14 @@ class AuctionsController < ApplicationController
 
 
     def missubastas
-        ap = Apetition.where(email: current_user.email).take
-        @auctions = Auction.where(residence_id: ap.residence_id, week_id: ap.week_id)
+        if current_user.user_type == 2
+            ap = Apetition.where(email: current_user.email).take
+            if (!ap.nil?)
+                @auctions = Auction.where(residence_id: ap.residence_id, week_id: ap.week_id)
+            end
+        elsif current_user.user_type == 3
+            @auction = Auction.where(started: true)
+        end
     end
 
 

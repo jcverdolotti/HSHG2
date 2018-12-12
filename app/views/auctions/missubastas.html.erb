@@ -1,4 +1,4 @@
- <%if signed_in? && (current_user.user_type == 2)%>
+ <%if signed_in? && (current_user.user_type == 2||current_user.user_type == 3)%>
        
     <h2 style="margin-left: 10px;">Mis subastas</h2>
     <br/>
@@ -19,22 +19,23 @@
     </thead>
 
     <tbody>
-        <% @auctions.each do |a| %>
-        <tr>
-            <td><%= a.residence_id %></td>
-            <td><%= link_to Residence.find(a.residence_id).name , residence_path(Residence.find(a.residence_id)) %></td>
-            <td><%= a.startDate.strftime("%d-%m-%Y")%></td>
-            <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
-            <%if a.started%>
-                <td><%= link_to "Ingresar",auction_path(a), class:"btn btn-primary btn-lg"%></td>
-            <%else%>
-                <td>Subasta no iniciada</td>
-            <%end%>
+       <%if !@auctions.nil?%>
+            <% @auctions.each do |a| %>
+            <tr>
+                <td><%= a.residence_id %></td>
+                <td><%= link_to Residence.find(a.residence_id).name , residence_path(Residence.find(a.residence_id)) %></td>
+                <td><%= a.startDate.strftime("%d-%m-%Y")%></td>
+                <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
+                <%if a.started%>
+                    <td><%= link_to "Ingresar",auction_path(a), class:"btn btn-primary btn-lg"%></td>
+                <%else%>
+                    <td>Subasta no iniciada</td>
+                <%end%>
+                
             
-           
-        </tr>
-        <%end%>  
-
+            </tr>
+            <%end%>  
+        <%end%>
     </tbody>
 
     </table>
