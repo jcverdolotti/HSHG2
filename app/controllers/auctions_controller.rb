@@ -106,7 +106,7 @@ class AuctionsController < ApplicationController
                 @auctions = Auction.where(residence_id: ap.residence_id, week_id: ap.week_id)
             end
         elsif current_user.user_type == 3
-            @auction = Auction.where(started: true)
+            @auction = Auction.all
         end
     end
 
