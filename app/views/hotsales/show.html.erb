@@ -1,0 +1,47 @@
+<%if signed_in?%>
+  <div class="container" >
+  
+      
+      
+    <div class="jumbotron">
+    <div align= "center">
+    <h1 class="display-3" class="font-weight-bold" class="text-uppercase"><%= Residence.find(@hs.residence_id).name %></h1>
+    <img class="rounded"  style="width: 60rem;" src=<%= Residence.find(@hs.residence_id).image %>>
+    <p class="lead"><%= Residence.find(@hs.residence_id).description %></p>
+    <hr class="my-4">
+    <p></p>
+    </div>
+    
+    <div class="container">
+    <div class="row">
+          <div class="col-sm">País: <%=Residence.find(@hs.residence_id).country%></div>
+          <div class="col-sm">Provincia: <%=Residence.find(@hs.residence_id).province%> </div>
+          <div class="col-sm">Dirección: <%=Residence.find(@hs.residence_id).location%></div>
+          <div class="col-sm"> <%=Residence.find(@hs.residence_id).people_amount%> huéspedes</div>
+          <div class="col-sm">Precio: $<%=@hs.hotsale_price%></div>
+    </div>
+  
+
+    <p></p>
+      
+        <div class="row">
+        <div class="col-sm">
+         <%= link_to 'Reservar', nuevareservahs_path(:user_id => current_user.id, :residence_id => @hs.residence_id, :week_id => @hs.week_id), class:"btn btn-primary btn-lg", data: {confirm: "Confirmará la reserva de la residencia #{Residence.find(@hs.residence_id).name}. ¿Desea Continuar?"}%>
+        </div>
+
+        
+      </div>
+      
+    </div>
+  </div>
+  </div>
+      
+
+      
+      
+
+  <%=link_to 'Volver', residences_path, class: 'btn btn-secondary'%>
+  </div> 
+  <%else%>
+  <p> no tienes acceso a esta seccion</p>
+  <%end%>

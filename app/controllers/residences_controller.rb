@@ -10,8 +10,8 @@ class ResidencesController < ApplicationController
                     if @residences = Residence.where('description ILIKE ?', "%#{params[:country]}%").count > 0
                         @residences = Residence.where('description ILIKE ?', "%#{params[:country]}%")
                     else
-                        @residences = Residence.all
-                        @aviso = "No se encontraron resultados"
+                        @residences = Residence.all 
+                        flash[:notice] = "No se encontraron resultados"
                     end
                 end
             end

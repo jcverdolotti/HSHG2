@@ -3,7 +3,9 @@ class HotsalesController < ApplicationController
     def index
         @hs = Hotsale.all
     end
-
+    def show
+        @hs = Hotsale.find(params[:id])
+    end
     def edit
         @hs = Hotsale.find(params[:id])
     end
