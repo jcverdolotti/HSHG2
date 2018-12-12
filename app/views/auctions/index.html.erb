@@ -9,7 +9,9 @@
         <tr>
         <th width="5%" >#</th>
         <th width="20%">Residencia</th>
-        <th width="20%">Fecha inicio</th>      
+        <th width="20%">Fecha inicio</th>
+        <th width="20%">Fecha fin</th>  
+        <th width="20%">Iniciada</th>      
         <th colspan="2"></th>
         </tr>
 
@@ -25,6 +27,9 @@
             <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
             <%if (Time.now.strftime("%d-%m-%Y") >=  a.startDate.strftime("%d-%m-%Y")) && (!a.started)%>
                  <td><%= link_to 'Iniciar Subasta', iniciarsubasta_auction_path(a), class:"btn btn-primary btn-lg"%></td>
+            <%end%>
+            <%if a.started%>
+                <td>Si</td>
             <%end%>
             
            
