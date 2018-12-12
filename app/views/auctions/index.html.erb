@@ -23,7 +23,7 @@
             <td><%= link_to Residence.find(a.residence_id).name , residence_path(Residence.find(a.residence_id)) %></td>
             <td><%= a.startDate.strftime("%d-%m-%Y")%></td>
             <td><%= a.endDate.strftime("%d-%m-%Y")%></td>
-            <%if Time.now.strftime("%d-%m-%Y") >=  a.startDate.strftime("%d-%m-%Y")%>
+            <%if (Time.now.strftime("%d-%m-%Y") >=  a.startDate.strftime("%d-%m-%Y")) && (!a.started)%>
                  <td><%= link_to 'Iniciar Subasta', iniciarsubasta_auction_path(a), class:"btn btn-primary btn-lg"%></td>
             <%end%>
             
