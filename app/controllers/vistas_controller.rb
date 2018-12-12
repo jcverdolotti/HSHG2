@@ -47,7 +47,7 @@ class VistasController < ApplicationController
     end
 
     def contacto
-        lash[:notice] = "Un administrador responderá a la brevedad. Por favor revise su casilla de correo."
+        
     end
 
     def acercade

@@ -7,10 +7,7 @@
     <tr>
       <th width="5%" >#</th>
       <th width="20%">Residencia</th>
-      <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
-        <th width="5%">Reservada</th>
-        <th width="5%">Eliminada</th>
-      <%elsif signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
+      <% if signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
         <th width="20%">Pais</th>
         <th width="20%">Estado/Provincia</th>
         <th width="20%">Semana</th>
@@ -25,10 +22,10 @@
     <% @hs.each do |hs| %>
       <tr>
         <td><%= hs.id %></td>
-        <td><%= link_to Residence.find(hs.residence_id).name , residence_path(Residence.find(hs.residence_id)) %></td>
+        <td><%= link_to Residence.find(hs.residence_id).name , hotsale_path(hs) %></td>
         
         <%if signed_in? && (current_user.user_type == 1 || current_user.user_type == 4) %>
-        
+
         <%elsif signed_in? && (current_user.user_type == 2 || current_user.user_type == 3) %>
             <td><%= Residence.find(hs.residence_id).country %></td>
             <td><%= Residence.find(hs.residence_id).province %></td>

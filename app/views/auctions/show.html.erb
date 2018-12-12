@@ -12,6 +12,8 @@
     <%end%>
     </div>
     <div>
-    <%= link_to "Quiero Ofertar", edit_auction_path(@auction)%>
+    <%if current_user.user_type == 2 || current_user.user_type == 3 %>
+        <%= link_to "Quiero Ofertar", edit_auction_path(@auction)%>
+    <%end%>
     </div>
     <%end%>
